@@ -1,4 +1,4 @@
-nstructions
+instructions
 
 1. go on software hub and launch git for windows
 2. once it's running, go on powershell or command line and type: 'cd project location', with 'project location' being where you want to store the project e.g. cd Documents

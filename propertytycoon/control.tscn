@@ -1,46 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c38mv1ehy76yq"]
+[gd_scene load_steps=6 format=3 uid="uid://c38mv1ehy76yq"]
 
 [ext_resource type="PackedScene" uid="uid://uvbf7jklkn0l" path="res://dice.tscn" id="1_lw2yk"]
 [ext_resource type="Script" path="res://control.gd" id="1_wosrg"]
 [ext_resource type="PackedScene" uid="uid://3qak4d3dfj50" path="res://player.tscn" id="2_0ulu0"]
 [ext_resource type="PackedScene" uid="uid://bpodlxb5p8jbv" path="res://token.tscn" id="3_qbfmk"]
-[ext_resource type="Texture2D" uid="uid://1ey2x0ljeano" path="res://RotatingCoin_spritSheet.PNG" id="4_dqqjg"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vhmq4"]
-atlas = ExtResource("4_dqqjg")
-region = Rect2(0, 0, 17, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eu77a"]
-atlas = ExtResource("4_dqqjg")
-region = Rect2(17, 0, 17, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ea6pt"]
-atlas = ExtResource("4_dqqjg")
-region = Rect2(34, 0, 17, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ou28"]
-atlas = ExtResource("4_dqqjg")
-region = Rect2(51, 0, 17, 14)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kqb5g"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vhmq4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eu77a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ea6pt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ou28")
-}],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://d2pwmagtrpr8p" path="res://Screenshot_2025-02-10_101418-removebg-preview.png" id="5_dryjx"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -59,12 +23,8 @@ scale = Vector2(1.75, 1.57143)
 
 [node name="Token" parent="." instance=ExtResource("3_qbfmk")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Token"]
-position = Vector2(7172.9, -3054.5)
-scale = Vector2(378.953, 481.812)
-sprite_frames = SubResource("SpriteFrames_kqb5g")
-animation = &"new_animation"
-frame_progress = 0.760274
+[node name="Sprite2D" type="Sprite2D" parent="Token"]
+texture = ExtResource("5_dryjx")
 
 [node name="DiceButton" type="Button" parent="."]
 layout_mode = 0

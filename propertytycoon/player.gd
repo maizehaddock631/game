@@ -7,6 +7,7 @@ var injail : bool
 var isAI : bool
 var token : Token
 var properties = []
+var current_position : Vector2
 
 func pay(amount: int, who: Player) -> void:
 	who.balance += amount

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpodlxb5p8jbv"]
+[gd_scene load_steps=3 format=3 uid="uid://bpodlxb5p8jbv"]
 
 [ext_resource type="Script" path="res://token.gd" id="1_xcgw3"]
+[ext_resource type="Texture2D" uid="uid://d2pwmagtrpr8p" path="res://Screenshot_2025-02-10_101418-removebg-preview.png" id="2_kvsvu"]
 
 [node name="Token" type="Node2D"]
 script = ExtResource("1_xcgw3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kvsvu")

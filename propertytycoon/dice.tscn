@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://uvbf7jklkn0l"]
 
 [ext_resource type="Script" path="res://dice.gd" id="1_cho80"]
-[ext_resource type="Texture2D" uid="uid://cyrlwa2g0itgg" path="res://CuteDice - AssetPack_v1.0/CuteDice - AssetPack_v1.0/PixelDice_White.png" id="1_xsdai"]
+[ext_resource type="Texture2D" uid="uid://cyrlwa2g0itgg" path="res://images/CuteDice - AssetPack_v1.0/CuteDice - AssetPack_v1.0/PixelDice_White.png" id="1_xsdai"]
 
 [sub_resource type="Animation" id="Animation_owiak"]
 resource_name = "rolling"

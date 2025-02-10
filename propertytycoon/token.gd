@@ -15,4 +15,4 @@ func _ready() -> void:
 	allocate_sprite()
 
 func allocate_sprite() -> void:
-	sprite.texture = textures[token_type]
+	pass

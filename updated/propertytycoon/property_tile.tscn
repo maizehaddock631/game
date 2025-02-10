@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dve6ve130u3kf"]
+
+[ext_resource type="Script" path="res://property_tile.gd" id="1_76vit"]
+
+[node name="PropertyTile" type="Node2D"]
+script = ExtResource("1_76vit")

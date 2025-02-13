@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c38mv1ehy76yq"]
+[gd_scene load_steps=9 format=3 uid="uid://c38mv1ehy76yq"]
 
 [ext_resource type="PackedScene" uid="uid://uvbf7jklkn0l" path="res://dice.tscn" id="1_lw2yk"]
 [ext_resource type="Script" path="res://control.gd" id="1_wosrg"]
@@ -7,17 +7,23 @@
 [ext_resource type="Texture2D" uid="uid://d2pwmagtrpr8p" path="res://Screenshot_2025-02-10_101418-removebg-preview.png" id="5_dryjx"]
 [ext_resource type="PackedScene" uid="uid://co4lcwdcl8txp" path="res://chance_board.tscn" id="6_0xaf3"]
 [ext_resource type="PackedScene" uid="uid://bmyeew58mk33d" path="res://chest_board.tscn" id="7_6dd1b"]
+[ext_resource type="PackedScene" uid="uid://chvedidpyg1lm" path="res://board.tscn" id="8_2lft6"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = 133.0
+offset_right = 367.0
+offset_bottom = -469.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wosrg")
 
 [node name="Player" parent="." instance=ExtResource("2_0ulu0")]
+position = Vector2(157, 130)
 
 [node name="Token" parent="." instance=ExtResource("3_qbfmk")]
 visible = false
@@ -46,29 +52,34 @@ scale = Vector2(1.76786, 1.58929)
 
 [node name="RevealDice" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1053.0
-offset_top = 598.0
-offset_right = 1130.0
-offset_bottom = 629.0
+offset_left = -317.0
+offset_top = 80.0
+offset_right = -163.0
+offset_bottom = 221.0
 text = "Dice"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 272.0
 offset_bottom = 649.0
 
 [node name="Panel" type="Panel" parent="PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="ChanceBoard" parent="." instance=ExtResource("6_0xaf3")]
-position = Vector2(835, 242)
+position = Vector2(296, 168)
 rotation = 1.18823
 scale = Vector2(0.243243, 0.2287)
 
 [node name="chest_board" parent="." instance=ExtResource("7_6dd1b")]
-position = Vector2(486, 324)
+position = Vector2(428, 326)
 rotation = -1.94223
 scale = Vector2(0.264375, 0.235)
+
+[node name="Board" parent="." instance=ExtResource("8_2lft6")]
+position = Vector2(-57, -24)
 
 [connection signal="pressed" from="DiceButton" to="." method="_on_dice_button_pressed"]
 [connection signal="pressed" from="RevealDice" to="." method="_on_reveal_dice_pressed"]

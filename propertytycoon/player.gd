@@ -20,3 +20,8 @@ func roll() -> int:
 
 func buy_property() -> void:
 	properties.add()
+
+func in_jail() -> bool:
+	if current_position == Vector2(-12, 30):
+		injail = true
+	return injail

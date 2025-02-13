@@ -3,6 +3,7 @@ extends Control
 @onready var dice = $Dice
 @onready var dice_2 = $Dice2
 @onready var dice_button = $DiceButton
+@onready var player: Player = $Player
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,8 +18,12 @@ func _process(delta):
 	pass
 
 func _on_dice_button_pressed():
-	dice.roll();
-	dice_2.roll();
+	var dice1 = dice.roll()
+	var dice2 = dice_2.roll()
+	if dice1 == dice2:
+		print("You rolled a double!!")
+		_on_dice_button_pressed()
+	
 	
 func diceroller():
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c38mv1ehy76yq"]
+[gd_scene load_steps=10 format=3 uid="uid://c38mv1ehy76yq"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_rgmk4"]
 [ext_resource type="Texture2D" uid="uid://bom70q3skogfn" path="res://images/Screenshot 2025-02-12 082606.png" id="2_jihuq"]
@@ -8,12 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://3qak4d3dfj50" path="res://player.tscn" id="6_5f51y"]
 [ext_resource type="PackedScene" uid="uid://co4lcwdcl8txp" path="res://chance_board.tscn" id="7_mapwc"]
 [ext_resource type="PackedScene" uid="uid://bmyeew58mk33d" path="res://chest_board.tscn" id="8_y8wle"]
+[ext_resource type="PackedScene" uid="uid://dve6ve130u3kf" path="res://property_tile.tscn" id="9_4pebk"]
 
 [node name="Game manager" type="Control" node_paths=PackedStringArray("game_spaces")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_rgmk4")
-game_spaces = [NodePath("Go"), NodePath("The old creek"), NodePath("Pot luck"), NodePath("Gangsters paradise"), NodePath("Income tax"), NodePath("Brighton station"), NodePath("The angels delight"), NodePath("Opportunity knocks"), NodePath("Potter avenue"), NodePath("Granger avenue"), NodePath("Just visiting jail"), NodePath("Sky walker drive"), NodePath("Telsa Power Co"), NodePath("Wookie hole"), NodePath("Rey lane"), NodePath("Hove station"), NodePath("Bishop drive"), NodePath("Potluck 2"), NodePath("Duhnam street"), NodePath("Broyles lane"), NodePath("Free parking"), NodePath("Yue fei square"), NodePath("Opportunity knocks2"), NodePath("Mulan rouge"), NodePath("Han xin garderns"), NodePath("Falmer station"), NodePath("Shatner close"), NodePath("Picard avenue"), NodePath("Edison water"), NodePath("Crusher creek"), NodePath("Go to jail"), NodePath("Sirat Mews"), NodePath("Ghengis Crescent"), NodePath("Pot luck 3"), NodePath("Ibis Close"), NodePath("Portslade station"), NodePath("Opportunity knocks3"), NodePath("James Webb Way"), NodePath("Super tax"), NodePath("Turing heights")]
+game_spaces = [NodePath("Go"), NodePath("The Old Creek/The old creek"), NodePath("Pot luck"), NodePath("Gangsters paradise"), NodePath("Income tax"), NodePath("Brighton station"), NodePath("The angels delight"), NodePath("Opportunity knocks"), NodePath("Potter avenue"), NodePath("Granger avenue"), NodePath("Just visiting jail"), NodePath("Sky walker drive"), NodePath("Telsa Power Co"), NodePath("Wookie hole"), NodePath("Rey lane"), NodePath("Hove station"), NodePath("Bishop drive"), NodePath("Potluck 2"), NodePath("Duhnam street"), NodePath("Broyles lane"), NodePath("Free parking"), NodePath("Yue fei square"), NodePath("Opportunity knocks2"), NodePath("Mulan rouge"), NodePath("Han xin garderns"), NodePath("Falmer station"), NodePath("Shatner close"), NodePath("Picard avenue"), NodePath("Edison water"), NodePath("Crusher creek"), NodePath("Go to jail"), NodePath("Sirat Mews"), NodePath("Ghengis Crescent"), NodePath("Pot luck 3"), NodePath("Ibis Close"), NodePath("Portslade station"), NodePath("Opportunity knocks3"), NodePath("James Webb Way"), NodePath("Super tax"), NodePath("Turing heights")]
 
 [node name="Board" type="Sprite2D" parent="."]
 texture_filter = 2
@@ -78,8 +79,13 @@ scale = Vector2(0.264375, 0.235)
 [node name="Go" type="Marker2D" parent="."]
 position = Vector2(517, 51)
 
-[node name="The old creek" type="Marker2D" parent="."]
-position = Vector2(597, 55)
+[node name="The Old Creek" parent="." instance=ExtResource("9_4pebk")]
+position = Vector2(331, 299)
+propertycost = 60
+rent = 2
+
+[node name="The old creek" type="Marker2D" parent="The Old Creek"]
+position = Vector2(266, -244)
 
 [node name="Pot luck" type="Marker2D" parent="."]
 position = Vector2(646, 54)

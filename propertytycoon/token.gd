@@ -7,9 +7,7 @@ enum tokens {CAT, IRON, HATSTAND, SMARTPHONE, BOOT, SHIP}
 var token_type : tokens
 var sprite: Sprite2D
 
-var textures = {
-	tokens.IRON: preload("res://Screenshot_2025-02-10_101418-removebg-preview.png")
-}
+##var textures = {}
 
 func _ready() -> void:
 	allocate_sprite()

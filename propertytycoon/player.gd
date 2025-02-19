@@ -1,6 +1,6 @@
-class_name Player
+extends Sprite2D
 
-extends Node2D
+class_name Player
 
 var balance : int = 1500
 var injail : bool

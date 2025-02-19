@@ -1,0 +1,53 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1739987794
+ai.gd::GDScript::-1::1739987776::0::1::::AI<>Player<>::
+ai.tscn::PackedScene::5969544353475693931::1739987776::0::1::::<><>::res://ai.gd
+banker.gd::GDScript::-1::1739987776::0::1::::Banker<>Node2D<>::
+banker.tscn::PackedScene::7780521822814865572::1739987776::0::1::::<><>::res://banker.gd
+board.gd::GDScript::-1::1739987776::0::1::::Board<>Sprite2D<>::
+board.tscn::PackedScene::5307763856575548730::1739987776::0::1::::<><>::uid://dve6ve130u3kf::::res://property_tile.tscn<>uid://bom70q3skogfn::::res://images/Screenshot 2025-02-12 082606.png
+boardnotworking.tscn::PackedScene::5978748799682540968::1739987776::0::1::::<><>::uid://dve6ve130u3kf::::res://property_tile.tscn<>uid://bom70q3skogfn::::res://images/Screenshot 2025-02-12 082606.png
+card.gd::GDScript::-1::1739987776::0::1::::Card<>Node2D<>::
+card.tscn::PackedScene::8457135483211529320::1739987776::0::1::::<><>::res://card.gd
+card_type_tile.gd::GDScript::-1::1739987776::0::1::::CardTypeTile<>Tile<>::
+card_type_tile.tscn::PackedScene::4650856502284162493::1739987776::0::1::::<><>::res://card_type_tile.gd
+chance.gd::GDScript::-1::1739987776::0::1::::<>Card<>::
+chance_board.tscn::PackedScene::5816024751949636641::1739987776::0::1::::<><>::uid://k003flh3mrcf::::res://images/chance.png
+chest_board.gd::GDScript::-1::1739987776::0::1::::<>Sprite2D<>::
+chest_board.tscn::PackedScene::3278483087967276763::1739987776::0::1::::<><>::uid://c4703gdc848fr::::res://images/chest.png<>res://chest_board.gd
+control.gd::GDScript::-1::1739987776::0::1::::<>Control<>::
+dice.gd::GDScript::-1::1739987776::0::1::::Dice<>Node2D<>::
+dice.tscn::PackedScene::1447200146678101137::1739987776::0::1::::<><>::res://dice.gd<>uid://cyrlwa2g0itgg::::res://images/CuteDice - AssetPack_v1.0 (2)/CuteDice - AssetPack_v1.0/PixelDice_White.png
+main.tscn::PackedScene::6807020932858017692::1739987776::0::1::::<><>::res://control.gd<>uid://bom70q3skogfn::::res://images/Screenshot 2025-02-12 082606.png<>res://board.gd<>uid://uvbf7jklkn0l::::res://dice.tscn<>uid://chvedidpyg1lm::::res://board.tscn<>uid://3qak4d3dfj50::::res://player.tscn<>uid://co4lcwdcl8txp::::res://chance_board.tscn<>uid://bmyeew58mk33d::::res://chest_board.tscn<>uid://dve6ve130u3kf::::res://property_tile.tscn
+player.gd::GDScript::-1::1739987776::0::1::::Player<>Sprite2D<>::
+player.tscn::PackedScene::1998337052956888401::1739987776::0::1::::<><>::uid://tmjfhkfc3hhl::::res://images/icon.svg<>res://player.gd
+property_tile.gd::GDScript::-1::1739987776::0::1::::PropertyTile<>Tile<>::
+property_tile.tscn::PackedScene::8643405258506719993::1739987776::0::1::::<><>::res://property_tile.gd
+tile.gd::GDScript::-1::1739987776::0::1::::Tile<>Node2D<>::
+tile.tscn::PackedScene::4197618431936811612::1739987776::0::1::::<><>::res://tile.gd
+token.gd::GDScript::-1::1739987776::0::1::::Token<>Node2D<>::
+::res://images/::1739987776
+chance.png::CompressedTexture2D::755066087245872973::1739987776::1739987796::1::::<><>::
+chest.png::CompressedTexture2D::6875946167978214967::1739987776::1739987797::1::::<><>::
+icon.svg::CompressedTexture2D::1358916327418209077::1739987776::1739987796::1::::<><>::
+Screenshot 2025-02-12 082606.png::CompressedTexture2D::3395825500750305311::1739987776::1739987797::1::::<><>::
+Screenshot_2025-02-10_101418-removebg-preview.png::CompressedTexture2D::9086683709140222749::1739987776::1739987797::1::::<><>::
+::res://images/CuteDice - AssetPack_v1.0/::1739987776
+::res://images/CuteDice - AssetPack_v1.0/CuteDice - AssetPack_v1.0/::1739987776
+PixelDice_Pink.png::CompressedTexture2D::7792622901673800710::1739987776::1739987797::1::::<><>::
+PixelDice_White.png::CompressedTexture2D::6493175252920411118::1739987776::1739987797::1::::<><>::
+PixelPokerChips.png::CompressedTexture2D::1645491117458565830::1739987776::1739987797::1::::<><>::
+README_&_LICENSE.txt::TextFile::-1::1739987776::0::1::::<><>::
+UpscaledDice_Pink.png::CompressedTexture2D::3319606444654467333::1739987776::1739987797::1::::<><>::
+UpscaledDice_White.png::CompressedTexture2D::5672986576084883791::1739987776::1739987797::1::::<><>::
+UpscaledPokerChips.png::CompressedTexture2D::7894204353582626001::1739987776::1739987797::1::::<><>::
+::res://images/CuteDice - AssetPack_v1.0 (2)/::1739987776
+::res://images/CuteDice - AssetPack_v1.0 (2)/CuteDice - AssetPack_v1.0/::1739987776
+PixelDice_Pink.png::CompressedTexture2D::7792622901673800710::1739987776::1739987797::1::::<><>::
+PixelDice_White.png::CompressedTexture2D::6493175252920411118::1739987776::1739987797::1::::<><>::
+PixelPokerChips.png::CompressedTexture2D::1645491117458565830::1739987776::1739987797::1::::<><>::
+README_&_LICENSE.txt::TextFile::-1::1739987776::0::1::::<><>::
+UpscaledDice_Pink.png::CompressedTexture2D::3319606444654467333::1739987776::1739987797::1::::<><>::
+UpscaledDice_White.png::CompressedTexture2D::5672986576084883791::1739987776::1739987797::1::::<><>::
+UpscaledPokerChips.png::CompressedTexture2D::7894204353582626001::1739987776::1739987797::1::::<><>::
+::res://Scenes/::1739987776

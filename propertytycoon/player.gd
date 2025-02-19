@@ -30,7 +30,7 @@ func buy_property(property: PropertyTile, bank: Banker) -> void:
 		self.balance -= property.propertycost
 		bank.balance += property.propertycost
 	elif self.balance < property.propertycost:
-		print("Sorry! You're broke!!")
+		print("Sorry! You're broke!")
 	elif not self.has_completed_loop:
 		print("You have to have completed a loop first!")
 	elif property.propertyowner is Player:

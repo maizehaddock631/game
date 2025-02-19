@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://co4lcwdcl8txp"]
+
+[ext_resource type="Texture2D" uid="uid://k003flh3mrcf" path="res://images/chance.png" id="1_43fug"]
+
+[node name="ChanceBoard" type="Sprite2D"]
+texture = ExtResource("1_43fug")

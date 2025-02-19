@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmyeew58mk33d"]
+
+[ext_resource type="Texture2D" uid="uid://c4703gdc848fr" path="res://images/chest.png" id="1_euj4x"]
+[ext_resource type="Script" path="res://Scripts/chest_board.gd" id="2_5mpbf"]
+
+[node name="chest_board" type="Sprite2D"]
+texture = ExtResource("1_euj4x")
+script = ExtResource("2_5mpbf")

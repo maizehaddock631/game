@@ -1,6 +1,7 @@
 class_name PropertyTile extends Tile
 
+@export var propertyname: String
 @export var propertycost : int
-var propertyowner
+@export var propertyowner : Node2D
 @export var rent : int
 @export var numofhouses: int

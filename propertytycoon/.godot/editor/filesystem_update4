@@ -1,7 +1,3 @@
 res://main.tscn
-res://player.gd
-res://banker.gd
-res://Test/player_test.gd
-res://Test/testrunner.tscn
-res://property_tile.gd
+res://tests/testrunner.tscn
 res://banker.tscn

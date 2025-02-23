@@ -19,6 +19,10 @@ config/icon="res://images/icon.svg"
 
 project/assembly_name="propertytycoon"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
 [input]
 
 ui_click={

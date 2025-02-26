@@ -2,17 +2,20 @@ extends Sprite2D
 
 class_name Player
 
-var balance : int = 1500
-var Playername: String
+var balance : int = 1500 #inital funds for every player is £1500
 var injail : bool
 var isAI : bool
 var token : Token
+var Name : String
 var properties = []
 var current_position : Marker2D
 var jail_turns: int
 var has_completed_loop: bool
 var get_out_of_jail_free: int
 var is_bankrupt: bool
+
+func _init(playerName: String) -> void:
+	self.Name = playerName
 
 func pay(amount: int, who: Player) -> void:
 	who.balance += amount

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bmyeew58mk33d" path="res://chest_board.tscn" id="8_y8wle"]
 [ext_resource type="PackedScene" uid="uid://dve6ve130u3kf" path="res://property_tile.tscn" id="9_4pebk"]
 
-[node name="Game manager" type="Control" node_paths=PackedStringArray("game_spaces")]
+[node name="GameManager" type="Control" node_paths=PackedStringArray("game_spaces")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_rgmk4")
@@ -83,9 +83,11 @@ scale = Vector2(0.264375, 0.235)
 [node name="Go" type="Marker2D" parent="."]
 position = Vector2(517, 51)
 
-[node name="The Old Creek" parent="." instance=ExtResource("9_4pebk")]
+[node name="The Old Creek" parent="." node_paths=PackedStringArray("propertyowner") instance=ExtResource("9_4pebk")]
 position = Vector2(331, 299)
+propertyname = "The Old Creek"
 propertycost = 60
+propertyowner = NodePath("../Banker")
 rent = 2
 
 [node name="The old creek" type="Marker2D" parent="The Old Creek"]

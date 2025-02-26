@@ -3,12 +3,14 @@ extends Control
 @onready var dice: Dice = $DiceStuff/Dice
 @onready var dice_button: Button = $DiceStuff/DiceButton
 @onready var dice_2: Dice = $DiceStuff/Dice2
-
+@onready var players = []
+@onready var current_turn: int = 0
 @export var game_spaces : Array[Node]
 var place : int = 0
 var number_of_spaces : int 
 
 @onready var player: Player = $Player
+@onready var player2: Player = $Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,6 +53,7 @@ func _rolling():
 			#if diceCount = 3:
 				#JAIL, call/make a jail functio
 	_move_player(addedNum)
+	end_turn()
 
 # Shows the dice sprites and roll button when pressed
 func _on_reveal_dice_pressed():
@@ -67,5 +70,18 @@ func _move_player(int):
 	var tween = create_tween()
 	tween.tween_property(player, "position", game_spaces[place].position, 1)
 	print(game_spaces[place])
-	
 	#need to send player position back to 0 in array, call func to add money
+
+	
+func start_turn():
+	var current_player = players[current_turn]
+	print("It's", current_player.Playername, "'s turn!")
+
+
+func end_turn():
+	current_turn = (current_turn + 1) % players.size() #the next turn will always loop back to the beginning when all the players have had a turn
+	print("Turn ended. Next up: ", players[current_turn].Playername)
+	start_turn()
+	
+	
+	

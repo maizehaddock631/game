@@ -1,3 +1,8 @@
 res://main.tscn
+res://control.gd
+res://turn_manager.gd
 res://tests/testrunner.tscn
 res://banker.tscn
+res://player.tscn
+res://tests/test_main.gd
+res://player.gd

@@ -17,9 +17,15 @@ var is_bankrupt: bool
 func _init(playerName: String) -> void:
 	self.Name = playerName
 
-func pay(amount: int, who: Player) -> void:
-	who.balance += amount
-	self.balance -= amount
+func pay(amount: int, recipient: Node) -> void:
+	if recipient is Banker:
+		print("Paid ", amount, " to the bank")
+		self.balance -= amount
+		recipient.balance += amount
+	else:
+		print("Paid ", amount, " to ", recipient.Name)
+		self.balance -= amount
+		recipient.balance += amount
 	
 func roll() -> int:
 	var number1 = $dice1.roll()
@@ -73,7 +79,25 @@ func use_getoutofjailfree() -> void:
 func declare_bankruptcy(bank: Banker) -> void:
 	bank.balance += self.balance
 	self.balance = 0
+	self.is_bankrupt = true
 	print("You have now been declared bankrupt and you're eliminated from the game")
+	
+func go_to_jail():
+	pass
+	
+func pay_jail_fine(bank:Banker):
+	pay(50, bank)
+	self.injail = false
+	self.jail_turns = 0
+	print(self.Name, " is no longer in jail")
+
+func stay_in_jail():
+	if self.jail_turns > 0:
+		self.jail_turns -= 1
+		print("You've decided to stay in jail")
+	elif self.jail_turns == 0:
+		print("You no longer have to stay in jail. You're free!")
+		self.injail = false
 	
 	
 	

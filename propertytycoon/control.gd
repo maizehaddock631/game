@@ -3,14 +3,15 @@ extends Control
 @onready var dice: Dice = $DiceStuff/Dice
 @onready var dice_button: Button = $DiceStuff/DiceButton
 @onready var dice_2: Dice = $DiceStuff/Dice2
-@onready var players = []
 @onready var current_turn: int = 0
 @export var game_spaces : Array[Node]
 var place : int = 0
 var number_of_spaces : int 
 
 @onready var player: Player = $Player
-@onready var player2: Player = $Player
+@onready var player2: Player = $Player2
+@onready var players = [player, player2]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +19,7 @@ func _ready() -> void:
 	dice_2.hide();
 	dice_button.hide();
 	number_of_spaces = game_spaces.size()
+	start_turn()
 	print(number_of_spaces)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,19 +70,19 @@ func _move_player(int):
 	
 	place = place + int
 	var tween = create_tween()
-	tween.tween_property(player, "position", game_spaces[place].position, 1)
+	tween.tween_property(players[current_turn], "position", game_spaces[place].position, 1)
 	print(game_spaces[place])
 	#need to send player position back to 0 in array, call func to add money
 
 	
 func start_turn():
 	var current_player = players[current_turn]
-	print("It's", current_player.Playername, "'s turn!")
+	print("It's ", current_player.playerName, "'s turn!")
 
 
 func end_turn():
 	current_turn = (current_turn + 1) % players.size() #the next turn will always loop back to the beginning when all the players have had a turn
-	print("Turn ended. Next up: ", players[current_turn].Playername)
+	print("Turn ended. Next up: ", players[current_turn].playerName)
 	start_turn()
 	
 	

@@ -1,8 +1,8 @@
 res://main.tscn
-res://player.gd
-res://tests/test_player.gd
+res://control.gd
 res://tests/testrunner.tscn
 res://banker.tscn
 res://player.tscn
 res://property_tile.tscn
-res://property_tile.gd
+res://player.gd
+res://tests/test_main.gd

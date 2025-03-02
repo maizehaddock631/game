@@ -15,7 +15,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_rgmk4")
-game_spaces = [NodePath("Go"), NodePath(""), NodePath("Pot luck"), NodePath(""), NodePath("Income tax"), NodePath("Brighton station"), NodePath(""), NodePath("Opportunity knocks"), NodePath("Potter Avenue/Potter avenue"), NodePath(""), NodePath("Just visiting jail"), NodePath("Sky walker drive"), NodePath("Telsa Power Co"), NodePath("Wookie hole"), NodePath("Rey lane"), NodePath("Hove station"), NodePath("Bishop drive"), NodePath("Potluck 2"), NodePath("Duhnam street"), NodePath("Broyles lane"), NodePath("Free parking"), NodePath("Yue fei square"), NodePath("Opportunity knocks2"), NodePath("Mulan rouge"), NodePath("Han xin garderns"), NodePath("Falmer station"), NodePath("Shatner close"), NodePath("Picard avenue"), NodePath("Edison water"), NodePath("Crusher creek"), NodePath("Go to jail"), NodePath("Sirat Mews"), NodePath("Ghengis Crescent"), NodePath("Pot luck 3"), NodePath("Ibis Close"), NodePath("Portslade station"), NodePath("Opportunity knocks3"), NodePath("James Webb Way"), NodePath("Super tax"), NodePath("Turing heights")]
+game_spaces = [NodePath("Go"), null, NodePath("Pot luck"), null, NodePath("Income tax"), NodePath("Brighton station"), null, NodePath("Opportunity knocks"), NodePath("Potter Avenue/Potter avenue"), null, NodePath("Just visiting jail"), NodePath("Sky walker drive"), NodePath("Telsa Power Co"), NodePath("Wookie hole"), NodePath("Rey lane"), NodePath("Hove station"), NodePath("Bishop drive"), NodePath("Potluck 2"), NodePath("Duhnam street"), NodePath("Broyles lane"), NodePath("Free parking"), NodePath("Yue fei square"), NodePath("Opportunity knocks2"), NodePath("Mulan rouge"), NodePath("Han xin garderns"), NodePath("Falmer station"), NodePath("Shatner close"), NodePath("Picard avenue"), NodePath("Edison water"), NodePath("Crusher creek"), NodePath("Go to jail"), NodePath("Sirat Mews"), NodePath("Ghengis Crescent"), NodePath("Pot luck 3"), NodePath("Ibis Close"), NodePath("Portslade station"), NodePath("Opportunity knocks3"), NodePath("James Webb Way"), NodePath("Super tax"), NodePath("Turing heights")]
 
 [node name="Banker" parent="." instance=ExtResource("2_fcj45")]
 position = Vector2(3, 6)
@@ -66,9 +66,13 @@ text = "Dice"
 visible = false
 position = Vector2(-34, -50)
 
+[node name="Player2" parent="." instance=ExtResource("6_5f51y")]
+playerName = "Jhardelle"
+
 [node name="Player" parent="." instance=ExtResource("6_5f51y")]
 position = Vector2(512, 51)
 scale = Vector2(0.335938, 0.21875)
+playerName = "Milly"
 
 [node name="ChanceBoard" parent="." instance=ExtResource("7_mapwc")]
 position = Vector2(660, 209)

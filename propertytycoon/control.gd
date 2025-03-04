@@ -3,6 +3,7 @@ extends Control
 @onready var dice: Dice = $DiceStuff/Dice
 @onready var dice_button: Button = $DiceStuff/DiceButton
 @onready var dice_2: Dice = $DiceStuff/Dice2
+<<<<<<< HEAD
 @onready var property_card_scene: PackedScene = preload("res://property_card.tscn")
 @onready var card_spawn = $CanvasLayer/CardSpawn
 @onready var player_money: Label = $PlayerMoney
@@ -21,14 +22,30 @@ var count : int = 0
 @onready var timer: Timer = $Timer
 @onready var property_panel: Panel = $PropertyPanel
 @onready var property_button: Button = $PropertyButton
+=======
+@onready var current_turn: int = 0
+@export var game_spaces : Array[Node]
+var place : int = 0
+var number_of_spaces : int 
+
+@onready var player: Player = $Player
+@onready var player2: Player = $Player2
+@onready var players = [player, player2]
+
+>>>>>>> c823501264cfb276e6127d357553321362954c16
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	dice.hide();
 	dice_2.hide();
 	dice_button.hide();
+<<<<<<< HEAD
 	property_panel.hide()
 	number_of_spaces = game_spaces.size()
+=======
+	number_of_spaces = game_spaces.size()
+	start_turn()
+>>>>>>> c823501264cfb276e6127d357553321362954c16
 	print(number_of_spaces)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,14 +79,21 @@ func _rolling():
 			print("You are moving " + str(addedNum) + " spaces!")
 			diceCount+=1
 			#if diceCount = 3:
+<<<<<<< HEAD
 				#JAIL, call/make a jail function
 	_move_player(addedNum)
+=======
+				#JAIL, call/make a jail functio
+	_move_player(addedNum)
+	end_turn()
+>>>>>>> c823501264cfb276e6127d357553321362954c16
 
 # Shows the dice sprites and roll button when pressed
 func _on_reveal_dice_pressed():
 	dice.show();
 	dice_2.show();
 	dice_button.show();
+<<<<<<< HEAD
 	
 
 # Moves the player through the array, changing its position
@@ -170,3 +194,30 @@ func move(place) -> void:
 func update_label(int, array):
 	player_money = int
 	player_properties = array
+=======
+
+# Moves the player through the array, changing its position
+func _move_player(int):
+	if place >= number_of_spaces:
+		print("out of bounds")
+	
+	place = place + int
+	var tween = create_tween()
+	tween.tween_property(players[current_turn], "position", game_spaces[place].position, 1)
+	print(game_spaces[place])
+	#need to send player position back to 0 in array, call func to add money
+
+	
+func start_turn():
+	var current_player = players[current_turn]
+	print("It's ", current_player.playerName, "'s turn!")
+
+
+func end_turn():
+	current_turn = (current_turn + 1) % players.size() #the next turn will always loop back to the beginning when all the players have had a turn
+	print("Turn ended. Next up: ", players[current_turn].playerName)
+	start_turn()
+	
+	
+	
+>>>>>>> c823501264cfb276e6127d357553321362954c16

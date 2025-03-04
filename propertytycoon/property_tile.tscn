@@ -1,7 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://dve6ve130u3kf"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://tile.gd" id="1_76vit"]
 
 [node name="Tile" type="Node2D"]
+=======
+[ext_resource type="Script" path="res://property_tile.gd" id="1_76vit"]
+
+[node name="PropertyTile" type="Node2D"]
+>>>>>>> c823501264cfb276e6127d357553321362954c16
 position = Vector2(-266, 244)
 script = ExtResource("1_76vit")

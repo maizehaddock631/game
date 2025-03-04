@@ -20,10 +20,11 @@
 [ext_resource type="Script" path="res://go_to_jail.gd" id="14_1alnn"]
 [ext_resource type="Texture2D" uid="uid://bcwyipcm2ogmd" path="res://prison bars.png" id="14_shv6y"]
 
-[node name="Game manager" type="Control" node_paths=PackedStringArray("game_spaces")]
+[node name="GameManager" type="Control" node_paths=PackedStringArray("game_spaces")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_rgmk4")
+<<<<<<< HEAD
 game_spaces = [NodePath("BoardTiles/Go"), NodePath("BoardTiles/The old creek"), NodePath("BoardTiles/Pot luck"), NodePath("BoardTiles/Gangsters paradise"), NodePath("BoardTiles/Income tax"), NodePath("BoardTiles/Brighton station"), NodePath("BoardTiles/The angels delight"), NodePath("BoardTiles/Opportunity knocks"), NodePath("BoardTiles/Potter avenue"), NodePath("BoardTiles/Granger Drive"), NodePath("BoardTiles/Just visiting jail"), NodePath("BoardTiles/Sky walker drive"), NodePath("BoardTiles/Telsa Power Co"), NodePath("BoardTiles/Wookie hole"), NodePath("BoardTiles/Rey lane"), NodePath("BoardTiles/Hove station"), NodePath("BoardTiles/Bishop drive"), NodePath("BoardTiles/Potluck 2"), NodePath("BoardTiles/Duhnam street"), NodePath("BoardTiles/Broyles lane"), NodePath("BoardTiles/Free parking"), NodePath("BoardTiles/Yue fei square"), NodePath("BoardTiles/Opportunity knocks2"), NodePath("BoardTiles/Mulan rouge"), NodePath("BoardTiles/Han xin garderns"), NodePath("BoardTiles/Falmer station"), NodePath("BoardTiles/Shatner close"), NodePath("BoardTiles/Picard avenue"), NodePath("BoardTiles/Edison water"), NodePath("BoardTiles/Crusher creek"), NodePath("BoardTiles/Go to jail"), NodePath("BoardTiles/Sirat Mews"), NodePath("BoardTiles/Ghengis Crescent"), NodePath("BoardTiles/Pot luck 3"), NodePath("BoardTiles/Ibis Close"), NodePath("BoardTiles/Portslade station"), NodePath("BoardTiles/Opportunity knocks3"), NodePath("BoardTiles/James Webb Way"), NodePath("BoardTiles/Super tax"), NodePath("BoardTiles/Turing heights")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -42,13 +43,16 @@ scale = Vector2(0.335938, 0.21875)
 [node name="Player2" parent="Players" instance=ExtResource("6_5f51y")]
 position = Vector2(373, 86)
 scale = Vector2(0.335938, 0.21875)
+=======
+game_spaces = [NodePath("Go"), null, NodePath("Pot luck"), null, NodePath("Income tax"), NodePath("Brighton station"), null, NodePath("Opportunity knocks"), NodePath("Potter Avenue/Potter avenue"), null, NodePath("Just visiting jail"), NodePath("Sky walker drive"), NodePath("Telsa Power Co"), NodePath("Wookie hole"), NodePath("Rey lane"), NodePath("Hove station"), NodePath("Bishop drive"), NodePath("Potluck 2"), NodePath("Duhnam street"), NodePath("Broyles lane"), NodePath("Free parking"), NodePath("Yue fei square"), NodePath("Opportunity knocks2"), NodePath("Mulan rouge"), NodePath("Han xin garderns"), NodePath("Falmer station"), NodePath("Shatner close"), NodePath("Picard avenue"), NodePath("Edison water"), NodePath("Crusher creek"), NodePath("Go to jail"), NodePath("Sirat Mews"), NodePath("Ghengis Crescent"), NodePath("Pot luck 3"), NodePath("Ibis Close"), NodePath("Portslade station"), NodePath("Opportunity knocks3"), NodePath("James Webb Way"), NodePath("Super tax"), NodePath("Turing heights")]
+>>>>>>> c823501264cfb276e6127d357553321362954c16
 
 [node name="Banker" parent="." instance=ExtResource("2_fcj45")]
 position = Vector2(3, 6)
 
 [node name="Board" type="Sprite2D" parent="."]
 texture_filter = 2
-position = Vector2(795, 321)
+position = Vector2(797, 324)
 scale = Vector2(1, 0.962481)
 texture = ExtResource("2_jihuq")
 script = ExtResource("3_jdhmb")
@@ -486,6 +490,17 @@ text = "Dice"
 visible = false
 position = Vector2(-34, -50)
 
+<<<<<<< HEAD
+=======
+[node name="Player2" parent="." instance=ExtResource("6_5f51y")]
+playerName = "Jhardelle"
+
+[node name="Player" parent="." instance=ExtResource("6_5f51y")]
+position = Vector2(512, 51)
+scale = Vector2(0.335938, 0.21875)
+playerName = "Milly"
+
+>>>>>>> c823501264cfb276e6127d357553321362954c16
 [node name="ChanceBoard" parent="." instance=ExtResource("7_mapwc")]
 position = Vector2(660, 209)
 rotation = 1.18823
@@ -543,6 +558,7 @@ offset_bottom = 128.0
 text = "Property"
 
 [node name="The Old Creek" parent="." instance=ExtResource("9_4pebk")]
+<<<<<<< HEAD
 visible = false
 position = Vector2(331, 299)
 
@@ -550,9 +566,16 @@ position = Vector2(331, 299)
 position = Vector2(1102, 15)
 scale = Vector2(0.128125, 0.104167)
 texture = ExtResource("14_shv6y")
+=======
+position = Vector2(595, 59)
+
+[node name="Marker2D" type="Marker2D" parent="The Old Creek"]
+position = Vector2(-3, -4)
+>>>>>>> c823501264cfb276e6127d357553321362954c16
 
 [node name="PrisonMarker" type="Marker2D" parent="Prison"]
 
+<<<<<<< HEAD
 [node name="PlayerMoney" type="Label" parent="."]
 layout_mode = 0
 offset_left = 30.0
@@ -568,6 +591,129 @@ offset_top = 188.0
 offset_right = 118.0
 offset_bottom = 211.0
 text = "Properties :"
+=======
+[node name="Gangster\'s Paradise" parent="." instance=ExtResource("9_4pebk")]
+position = Vector2(698, 56)
+
+[node name="Marker2D" type="Marker2D" parent="Gangster\'s Paradise"]
+
+[node name="Income tax" type="Marker2D" parent="."]
+position = Vector2(747, 55)
+
+[node name="Brighton station" type="Marker2D" parent="."]
+position = Vector2(794, 53)
+
+[node name="The Angel\'s Delight" parent="." instance=ExtResource("9_4pebk")]
+position = Vector2(847, 62)
+
+[node name="Marker2D" type="Marker2D" parent="The Angel\'s Delight"]
+position = Vector2(-4, -2)
+
+[node name="Opportunity knocks" type="Marker2D" parent="."]
+position = Vector2(896, 59)
+
+[node name="Potter Avenue" parent="." instance=ExtResource("9_4pebk")]
+position = Vector2(943, 59)
+
+[node name="Potter avenue" type="Marker2D" parent="Potter Avenue"]
+position = Vector2(1, 0)
+
+[node name="Granger Drive" parent="." instance=ExtResource("9_4pebk")]
+position = Vector2(993, 61)
+
+[node name="Marker2D" type="Marker2D" parent="Granger Drive"]
+position = Vector2(-1, -1)
+
+[node name="Just visiting jail" type="Marker2D" parent="."]
+position = Vector2(1075, 52)
+
+[node name="Sky walker drive" type="Marker2D" parent="."]
+position = Vector2(1074, 133)
+
+[node name="Telsa Power Co" type="Marker2D" parent="."]
+position = Vector2(1075, 181)
+
+[node name="Wookie hole" type="Marker2D" parent="."]
+position = Vector2(1077, 228)
+
+[node name="Rey lane" type="Marker2D" parent="."]
+position = Vector2(1077, 279)
+
+[node name="Hove station" type="Marker2D" parent="."]
+position = Vector2(1078, 325)
+
+[node name="Bishop drive" type="Marker2D" parent="."]
+position = Vector2(1081, 374)
+
+[node name="Potluck 2" type="Marker2D" parent="."]
+position = Vector2(1078, 415)
+
+[node name="Duhnam street" type="Marker2D" parent="."]
+position = Vector2(1072, 464)
+
+[node name="Broyles lane" type="Marker2D" parent="."]
+position = Vector2(1071, 516)
+
+[node name="Free parking" type="Marker2D" parent="."]
+position = Vector2(1076, 595)
+
+[node name="Yue fei square" type="Marker2D" parent="."]
+position = Vector2(994, 595)
+
+[node name="Opportunity knocks2" type="Marker2D" parent="."]
+position = Vector2(943, 597)
+
+[node name="Mulan rouge" type="Marker2D" parent="."]
+position = Vector2(895, 599)
+
+[node name="Han xin garderns" type="Marker2D" parent="."]
+position = Vector2(840, 599)
+
+[node name="Falmer station" type="Marker2D" parent="."]
+position = Vector2(797, 606)
+
+[node name="Shatner close" type="Marker2D" parent="."]
+position = Vector2(748, 604)
+
+[node name="Picard avenue" type="Marker2D" parent="."]
+position = Vector2(703, 599)
+
+[node name="Edison water" type="Marker2D" parent="."]
+position = Vector2(652, 597)
+
+[node name="Crusher creek" type="Marker2D" parent="."]
+position = Vector2(600, 597)
+
+[node name="Go to jail" type="Marker2D" parent="."]
+position = Vector2(509, 597)
+
+[node name="Sirat Mews" type="Marker2D" parent="."]
+position = Vector2(519, 518)
+
+[node name="Ghengis Crescent" type="Marker2D" parent="."]
+position = Vector2(519, 466)
+
+[node name="Pot luck 3" type="Marker2D" parent="."]
+position = Vector2(516, 419)
+
+[node name="Ibis Close" type="Marker2D" parent="."]
+position = Vector2(519, 368)
+
+[node name="Portslade station" type="Marker2D" parent="."]
+position = Vector2(514, 325)
+
+[node name="Opportunity knocks3" type="Marker2D" parent="."]
+position = Vector2(516, 279)
+
+[node name="James Webb Way" type="Marker2D" parent="."]
+position = Vector2(519, 226)
+
+[node name="Super tax" type="Marker2D" parent="."]
+position = Vector2(515, 182)
+
+[node name="Turing heights" type="Marker2D" parent="."]
+position = Vector2(514, 131)
+>>>>>>> c823501264cfb276e6127d357553321362954c16
 
 [connection signal="pressed" from="DiceStuff/DiceButton" to="." method="_on_dice_button_pressed"]
 [connection signal="pressed" from="DiceStuff/RevealDice" to="." method="_on_reveal_dice_pressed"]

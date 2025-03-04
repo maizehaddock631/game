@@ -2,6 +2,7 @@ extends Sprite2D
 
 class_name Player
 
+<<<<<<< HEAD
 @export var balance : int = 1500
 @export var Playername: String
 @export var injail : bool
@@ -14,10 +15,29 @@ class_name Player
 @export var get_out_of_jail_free: int
 @export var is_bankrupt: bool
 @export var position_on_board: Tile
+=======
+@export var balance : int = 1500 #inital funds for every player is £1500
+@export var injail : bool
+@export var isAI : bool
+var token : Token
+@export var playerName : String
+@export var properties = []
+var current_position : Marker2D
+var jail_turns: int
+var has_completed_loop: bool
+var get_out_of_jail_free: int
+var is_bankrupt: bool
+>>>>>>> c823501264cfb276e6127d357553321362954c16
 
-func pay(amount: int, who: Player) -> void:
-	who.balance += amount
-	self.balance -= amount
+func pay(amount: int, recipient: Node) -> void:
+	if recipient is Banker:
+		print("Paid ", amount, " to the bank")
+		self.balance -= amount
+		recipient.balance += amount
+	else:
+		print("Paid ", amount, " to ", recipient.Name)
+		self.balance -= amount
+		recipient.balance += amount
 	
 func roll() -> int:
 	var number1 = $dice1.roll()
@@ -78,7 +98,23 @@ func use_getoutofjailfree() -> void:
 func declare_bankruptcy(bank: Banker) -> void:
 	bank.balance += self.balance
 	self.balance = 0
+	self.is_bankrupt = true
 	print("You have now been declared bankrupt and you're eliminated from the game")
 	
+func go_to_jail():
+	pass
 	
+func pay_jail_fine(bank:Banker):
+	pay(50, bank)
+	self.injail = false
+	self.jail_turns = 0
+	print(self.Name, " is no longer in jail")
+
+func stay_in_jail():
+	if self.jail_turns > 0:
+		self.jail_turns -= 1
+		print("You've decided to stay in jail")
+	elif self.jail_turns == 0:
+		print("You no longer have to stay in jail. You're free!")
+		self.injail = false
 	

@@ -1,6 +1,8 @@
 res://main.tscn
+res://control.gd
 res://tests/testrunner.tscn
 res://banker.tscn
+<<<<<<< HEAD
 res://dice.tscn
 res://control.gd
 res://property_card.gd
@@ -22,3 +24,9 @@ res://go_to_jail.gd
 res://tile.gd
 res://banker.gd
 res://tests/test_player.gd
+=======
+res://player.tscn
+res://property_tile.tscn
+res://player.gd
+res://tests/test_main.gd
+>>>>>>> c823501264cfb276e6127d357553321362954c16

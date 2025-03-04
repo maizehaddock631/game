@@ -9,7 +9,7 @@ func pay(amount : int, who : Player) -> void:
 	who.balance += amount
 	balance -= amount
 
-func sell_property(player: Player, tile: PropertyTile) -> void:
+func sell_property(player: Player, tile: Tile) -> void:
 	if tile.propertycost > player.balance:
 		print("Sorry. Not enough funds")
 	else:

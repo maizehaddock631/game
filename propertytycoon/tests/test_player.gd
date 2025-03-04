@@ -7,7 +7,7 @@ var bank
 func _before_each():
 	print("Setting up before all tests")
 	player = Player.new()
-	property = PropertyTile.new()
+	property = Property.new()
 	bank = Banker.new()
 	
 func test_buypropertypass():

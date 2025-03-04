@@ -2,17 +2,18 @@ extends Sprite2D
 
 class_name Player
 
-var balance : int = 1500
-var Playername: String
-var injail : bool
-var isAI : bool
-var token : Token
-var properties = []
-var current_position : Marker2D
-var jail_turns: int
-var has_completed_loop: bool
-var get_out_of_jail_free: int
-var is_bankrupt: bool
+@export var balance : int = 1500
+@export var Playername: String
+@export var injail : bool
+@export var isAI : bool
+@export var token : Token
+@export var properties : Array [Property]
+@export var current_position : Marker2D
+@export var jail_turns: int
+@export var has_completed_loop: bool
+@export var get_out_of_jail_free: int
+@export var is_bankrupt: bool
+@export var position_on_board: Tile
 
 func pay(amount: int, who: Player) -> void:
 	who.balance += amount
@@ -23,7 +24,14 @@ func roll() -> int:
 	var number2 = $dice2.roll()
 	return number1 + number2
 
-func buy_property(property: PropertyTile, bank: Banker) -> void:
+func buy (property: Property):
+	balance = balance - property.propertycost
+	properties.append(property)
+	print(balance)
+	print(properties)
+
+
+func buy_property(property: Property, bank: Banker) -> void:
 	if self.balance < property.propertycost:
 		print("Sorry! You don't have enough funds to purchase ", property.propertyname)
 	if not self.has_completed_loop:
@@ -39,7 +47,7 @@ func buy_property(property: PropertyTile, bank: Banker) -> void:
 		bank.balance += property.propertycost
 		print("You have bought ", property.propertyname)
 
-func sell_property(property: PropertyTile, bank: Banker) -> void:
+func sell_property(property: Tile, bank: Banker) -> void:
 	if property not in self.properties:
 		print("You don't even own ", property.propertyname)
 	else:
@@ -48,13 +56,13 @@ func sell_property(property: PropertyTile, bank: Banker) -> void:
 		bank.balance -= new_sell_price
 		bank.properties.append(property)
 		self.properties.erase(property)
-		property.propertyowner = bank
+		#property.propertyowner = bank
 		print("You have sold ", property.propertyname)
 
-func mortgage_property(property: PropertyTile, bank: Banker) -> void:
+func mortgage_property(property: Tile, bank: Banker) -> void:
 	pass
 	
-func unmortgage_property(property: PropertyTile, bank: Banker ) -> void:
+func unmortgage_property(property: Tile, bank: Banker ) -> void:
 	pass
 
 func use_getoutofjailfree() -> void:

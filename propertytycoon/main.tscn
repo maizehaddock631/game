@@ -1,22 +1,22 @@
 [gd_scene load_steps=18 format=3 uid="uid://c38mv1ehy76yq"]
 
-[ext_resource type="Script" path="res://control.gd" id="1_rgmk4"]
+[ext_resource type="Script" uid="uid://7bpxuiyel11i" path="res://control.gd" id="1_rgmk4"]
 [ext_resource type="PackedScene" uid="uid://di37b7w15wrtk" path="res://banker.tscn" id="2_fcj45"]
 [ext_resource type="Texture2D" uid="uid://bom70q3skogfn" path="res://images/Screenshot 2025-02-12 082606.png" id="2_jihuq"]
-[ext_resource type="Script" path="res://board.gd" id="3_jdhmb"]
+[ext_resource type="Script" uid="uid://hoxwdpsvircf" path="res://board.gd" id="3_jdhmb"]
 [ext_resource type="PackedScene" uid="uid://uvbf7jklkn0l" path="res://dice.tscn" id="4_hfuxw"]
 [ext_resource type="PackedScene" uid="uid://chvedidpyg1lm" path="res://board.tscn" id="5_phwyp"]
 [ext_resource type="PackedScene" uid="uid://3qak4d3dfj50" path="res://player.tscn" id="6_5f51y"]
 [ext_resource type="PackedScene" uid="uid://co4lcwdcl8txp" path="res://chance_board.tscn" id="7_mapwc"]
 [ext_resource type="PackedScene" uid="uid://bmyeew58mk33d" path="res://chest_board.tscn" id="8_y8wle"]
-[ext_resource type="Script" path="res://go.gd" id="10_whyee"]
-[ext_resource type="Script" path="res://pot_luck.gd" id="11_iwhwm"]
-[ext_resource type="Script" path="res://property_tile.gd" id="11_kassn"]
-[ext_resource type="Script" path="res://tax.gd" id="12_8y2uq"]
-[ext_resource type="Script" path="res://opportunity_knocks.gd" id="13_eictk"]
-[ext_resource type="Script" path="res://just_visiting_jail.gd" id="14_x4aet"]
-[ext_resource type="Script" path="res://free_parking.gd" id="15_ljwko"]
-[ext_resource type="Script" path="res://go_to_jail.gd" id="16_857qe"]
+[ext_resource type="Script" uid="uid://gh0l4pba4uyq" path="res://go.gd" id="10_whyee"]
+[ext_resource type="Script" uid="uid://bnee34nb5y474" path="res://pot_luck.gd" id="11_iwhwm"]
+[ext_resource type="Script" uid="uid://djsm8u827xanr" path="res://property_tile.gd" id="11_kassn"]
+[ext_resource type="Script" uid="uid://bne2bi01q06dq" path="res://tax.gd" id="12_8y2uq"]
+[ext_resource type="Script" uid="uid://63xrkgrjroih" path="res://opportunity_knocks.gd" id="13_eictk"]
+[ext_resource type="Script" uid="uid://dxu4fqq2h8as0" path="res://just_visiting_jail.gd" id="14_x4aet"]
+[ext_resource type="Script" uid="uid://s51amltac011" path="res://free_parking.gd" id="15_ljwko"]
+[ext_resource type="Script" uid="uid://diu02lh54boqf" path="res://go_to_jail.gd" id="16_857qe"]
 
 [node name="GameManager" type="Control" node_paths=PackedStringArray("game_spaces")]
 layout_mode = 3
@@ -88,6 +88,7 @@ playerName = "Jhardelle"
 position = Vector2(519, 52)
 scale = Vector2(0.335938, 0.21875)
 playerName = "Milly"
+properties = []
 
 [node name="ChanceBoard" parent="." instance=ExtResource("7_mapwc")]
 position = Vector2(660, 209)
@@ -110,10 +111,11 @@ type = 0
 tilename = "Go"
 metadata/_edit_lock_ = true
 
-[node name="The Old Creek" type="Marker2D" parent="Board_Tiles"]
+[node name="The Old Creek" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
 position = Vector2(590, 58)
 script = ExtResource("11_kassn")
 propertycost = 60
+propertyowner = NodePath("../../Banker")
 rent = 2
 colour = 2
 type = 1
@@ -127,10 +129,11 @@ type = 3
 tilename = "Potluck1"
 metadata/_edit_lock_ = true
 
-[node name="Gangster\'s Paradise" type="Marker2D" parent="Board_Tiles"]
+[node name="Gangster\'s Paradise" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
 position = Vector2(698, 56)
 script = ExtResource("11_kassn")
 propertycost = 60
+propertyowner = NodePath("../../Banker")
 rent = 4
 colour = 2
 type = 1
@@ -145,10 +148,11 @@ type = 4
 tilename = "Income Tax"
 metadata/_edit_lock_ = true
 
-[node name="Brighton station" type="Marker2D" parent="Board_Tiles"]
+[node name="Brighton station" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
 position = Vector2(794, 53)
 script = ExtResource("11_kassn")
 propertycost = 200
+propertyowner = NodePath("../../Banker")
 rent = 25
 colour = 9
 type = 1
@@ -156,10 +160,11 @@ tilename = "Brighton Station"
 buyable = true
 metadata/_edit_lock_ = true
 
-[node name="The Angel\'s Delight" type="Marker2D" parent="Board_Tiles"]
+[node name="The Angel\'s Delight" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
 position = Vector2(843, 60)
 script = ExtResource("11_kassn")
 propertycost = 100
+propertyowner = NodePath("../../Banker")
 rent = 6
 colour = 0
 type = 1
@@ -174,20 +179,22 @@ type = 2
 tilename = "Opportunity\\ Knocks"
 metadata/_edit_lock_ = true
 
-[node name="Potter Avenue" type="Marker2D" parent="Board_Tiles"]
+[node name="Potter Avenue" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
 position = Vector2(952, 73)
 script = ExtResource("11_kassn")
 propertycost = 100
+propertyowner = NodePath("../../Banker")
 rent = 6
 colour = 0
 type = 1
 tilename = "Potter Avenue"
 buyable = true
 
-[node name="Granger Drive" type="Marker2D" parent="Board_Tiles"]
+[node name="Granger Drive" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
 position = Vector2(992, 60)
 script = ExtResource("11_kassn")
 propertycost = 120
+propertyowner = NodePath("../../Banker")
 colour = 0
 type = 1
 tilename = "Granger Drive"
@@ -201,10 +208,11 @@ type = 5
 tilename = "Just Visting"
 metadata/_edit_lock_ = true
 
-[node name="Sky walker drive" type="Marker2D" parent="Board_Tiles"]
+[node name="Sky walker drive" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
 position = Vector2(1074, 133)
 script = ExtResource("11_kassn")
 propertycost = 140
+propertyowner = NodePath("../../Banker")
 rent = 10
 colour = 6
 type = 1

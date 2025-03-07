@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7k4wjn3hrir4"]
 
-[ext_resource type="Script" path="res://property_card.gd" id="1_o78vb"]
+[ext_resource type="Script" uid="uid://cf5vpqnbdqhgd" path="res://property_card.gd" id="1_o78vb"]
 [ext_resource type="Texture2D" uid="uid://ci5y8bv5paed6" path="res://property bg.png" id="2_a04cx"]
 [ext_resource type="Texture2D" uid="uid://da21hr6rmx1i2" path="res://randomcolour.png" id="3_fau1o"]
 

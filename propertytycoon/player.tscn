@@ -1,12 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://3qak4d3dfj50"]
 
 [ext_resource type="Texture2D" uid="uid://tmjfhkfc3hhl" path="res://images/icon.svg" id="1_aiq7m"]
-[ext_resource type="Script" path="res://player.gd" id="1_oqife"]
+[ext_resource type="Script" uid="uid://b8w0ndwyu8l8j" path="res://player.gd" id="1_oqife"]
 
 [node name="Player" type="Sprite2D"]
 texture = ExtResource("1_aiq7m")
 script = ExtResource("1_oqife")
-balance = null
-injail = null
-isAI = null
-playerName = null

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://uvbf7jklkn0l"]
 
-[ext_resource type="Script" path="res://dice.gd" id="1_cho80"]
+[ext_resource type="Script" uid="uid://bd7uhtcdlxack" path="res://dice.gd" id="1_cho80"]
 [ext_resource type="Texture2D" uid="uid://cyrlwa2g0itgg" path="res://images/CuteDice - AssetPack_v1.0 (2)/CuteDice - AssetPack_v1.0/PixelDice_White.png" id="1_xsdai"]
 
 [sub_resource type="Animation" id="Animation_f41dr"]
@@ -149,14 +149,14 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jmgfu"]
 _data = {
-"1": SubResource("Animation_f41dr"),
-"2": SubResource("Animation_2s04v"),
-"3": SubResource("Animation_noyxr"),
-"4": SubResource("Animation_8h4fs"),
-"5": SubResource("Animation_vvejv"),
-"6": SubResource("Animation_1vco1"),
-"RESET": SubResource("Animation_xrg4p"),
-"rolling": SubResource("Animation_owiak")
+&"1": SubResource("Animation_f41dr"),
+&"2": SubResource("Animation_2s04v"),
+&"3": SubResource("Animation_noyxr"),
+&"4": SubResource("Animation_8h4fs"),
+&"5": SubResource("Animation_vvejv"),
+&"6": SubResource("Animation_1vco1"),
+&"RESET": SubResource("Animation_xrg4p"),
+&"rolling": SubResource("Animation_owiak")
 }
 
 [node name="Dice" type="Sprite2D"]

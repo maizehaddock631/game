@@ -8,7 +8,7 @@ class_name Player
 var token : Token
 @export var playerName : String
 @export var properties = [Property]
-var current_position : Marker2D
+var current_position: int = 0
 var jail_turns: int
 var has_completed_loop: bool
 var get_out_of_jail_free: int
@@ -24,16 +24,63 @@ func pay(amount: int, recipient: Node) -> void:
 		self.balance -= amount
 		recipient.balance += amount
 	
-func roll() -> int:
-	var number1 = $dice1.roll()
-	var number2 = $dice2.roll()
-	return number1 + number2
+func roll(dice: Dice, dice_2: Dice):
+	var isNotADouble : bool = false 
+	var addedNum : int = 0
+
+	while isNotADouble != true:
+		var dice1 = dice.roll()
+		var dice2 = dice_2.roll()
+		var diceCount : int = 0
+		
+		if dice1 != dice2:
+			addedNum = addedNum + dice1 + dice2
+			print("You are moving " + str(addedNum) + " spaces!")
+			isNotADouble = true
 	
-func buy(property: Property):
-	balance = balance - property.propertycost
-	properties.append(property)
-	print(balance)
-	print(properties)
+		elif dice1 == dice2:
+			print("You rolled a double!!")
+			addedNum = addedNum + dice1 + dice2
+			print("You are moving " + str(addedNum) + " spaces!")
+			diceCount+=1
+	return addedNum
+
+func move(spaces: int, game_spaces: Array, timer: Timer):
+	#can test by changing int to a specific number
+	var num = spaces + 1
+	var final_space 
+	var turn_done = false
+	var count : int = 0
+	
+	while num != 0 and game_spaces[current_position] != game_spaces[39]:
+		var tween = create_tween()
+		tween.tween_property(self, "position", game_spaces[current_position].position, 1)
+		timer.start()
+		await timer.timeout
+		current_position += 1
+		num -= 1
+		count += 1
+		#print(game_spaces[current_position-1])
+	
+	if game_spaces[current_position] == game_spaces[39]:
+		var tween = create_tween()
+		tween.tween_property(self, "position", game_spaces[0].position, 1)
+		timer.start()
+		await timer.timeout
+		current_position -= count 
+		count = 0
+		self.has_completed_loop = true
+		current_position = 0
+	
+	turn_done = true
+	
+	#if turn_done == true:
+	final_space = current_position -1
+	#print("this runs")
+	#print(current_position-1)
+	#print(game_spaces[current_position-1])
+	#
+	
 
 func buy_property(property: Property, bank: Banker) -> void:
 	if self.balance < property.propertycost:

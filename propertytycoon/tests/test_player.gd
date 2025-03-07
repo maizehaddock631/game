@@ -1,8 +1,8 @@
 extends GutTest
 
 func test_pay():
-	var player : Player = Player.new()
-	var property : PropertyTile = PropertyTile.new()
+	var player = Player.new()
+	var property = Property.new()
 	var bank : Banker = Banker.new()
 	var player2 : Player = Player.new()
 	
@@ -16,7 +16,7 @@ func test_pay():
 
 func test_buypropertypass():
 	var player : Player = Player.new()
-	var property : PropertyTile = PropertyTile.new()
+	var property = Property.new()
 	var bank : Banker = Banker.new()
 	property.propertycost = 500
 	player.has_completed_loop = true
@@ -32,7 +32,7 @@ func test_buypropertypass():
 	
 func test_buypropertyfail():
 	var player : Player = Player.new()
-	var property : PropertyTile = PropertyTile.new()
+	var property = Property.new()
 	var bank : Banker = Banker.new()
 	property.propertycost = 2000
 	property.propertyname = "The Old Creek"
@@ -48,7 +48,7 @@ func test_buypropertyfail():
 
 func test_sellproperty():
 	var player : Player = Player.new()
-	var property : PropertyTile = PropertyTile.new()
+	var property = Property.new()
 	var bank : Banker = Banker.new()
 	property.propertycost = 2000
 	property.propertyname = "The Old Creek"

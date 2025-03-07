@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7k4wjn3hrir4"]
+
+[ext_resource type="Script" path="res://property_card.gd" id="1_o78vb"]
+[ext_resource type="Texture2D" uid="uid://ci5y8bv5paed6" path="res://property bg.png" id="2_a04cx"]
+[ext_resource type="Texture2D" uid="uid://da21hr6rmx1i2" path="res://randomcolour.png" id="3_fau1o"]
+
+[node name="PropertyCard" type="Node2D"]
+position = Vector2(1, -2)
+script = ExtResource("1_o78vb")
+
+[node name="BaseCardSprite" type="Sprite2D" parent="."]
+position = Vector2(9, -62)
+scale = Vector2(0.43, 0.403333)
+texture = ExtResource("2_a04cx")
+
+[node name="PropertyDisplay" type="Node2D" parent="."]
+
+[node name="PropertyColour" type="Sprite2D" parent="PropertyDisplay"]
+position = Vector2(10, -96)
+scale = Vector2(0.6325, 0.5725)
+texture = ExtResource("3_fau1o")
+
+[node name="PropertyLabel" type="Label" parent="PropertyDisplay"]
+offset_left = -87.0
+offset_top = -113.0
+offset_right = 96.0
+offset_bottom = -48.0
+text = "Property Name"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PropertyCost" type="Label" parent="PropertyDisplay"]
+offset_left = -87.0
+offset_top = -65.0
+offset_right = 104.0
+offset_bottom = -13.0
+text = "Cost"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BuyButton" type="Button" parent="PropertyDisplay"]
+offset_left = -6.0
+offset_top = -27.0
+offset_right = 34.0
+offset_bottom = 4.0
+text = "BUY"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="PropertyDisplay/BuyButton" to="." method="_on_buy_button_pressed"]

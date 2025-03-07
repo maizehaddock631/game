@@ -7,7 +7,7 @@ class_name Player
 @export var isAI : bool
 var token : Token
 @export var playerName : String
-@export var properties = []
+@export var properties = [Property]
 var current_position : Marker2D
 var jail_turns: int
 var has_completed_loop: bool
@@ -20,7 +20,7 @@ func pay(amount: int, recipient: Node) -> void:
 		self.balance -= amount
 		recipient.balance += amount
 	else:
-		print("Paid ", amount, " to ", recipient.Name)
+		print("Paid ", amount, " to ", recipient.playerName)
 		self.balance -= amount
 		recipient.balance += amount
 	
@@ -28,8 +28,14 @@ func roll() -> int:
 	var number1 = $dice1.roll()
 	var number2 = $dice2.roll()
 	return number1 + number2
+	
+func buy(property: Property):
+	balance = balance - property.propertycost
+	properties.append(property)
+	print(balance)
+	print(properties)
 
-func buy_property(property: PropertyTile, bank: Banker) -> void:
+func buy_property(property: Property, bank: Banker) -> void:
 	if self.balance < property.propertycost:
 		print("Sorry! You don't have enough funds to purchase ", property.propertyname)
 	if not self.has_completed_loop:
@@ -45,7 +51,7 @@ func buy_property(property: PropertyTile, bank: Banker) -> void:
 		bank.balance += property.propertycost
 		print("You have bought ", property.propertyname)
 
-func sell_property(property: PropertyTile, bank: Banker) -> void:
+func sell_property(property: Property, bank: Banker) -> void:
 	if property not in self.properties:
 		print("You don't even own ", property.propertyname)
 	else:
@@ -57,10 +63,10 @@ func sell_property(property: PropertyTile, bank: Banker) -> void:
 		property.propertyowner = bank
 		print("You have sold ", property.propertyname)
 
-func mortgage_property(property: PropertyTile, bank: Banker) -> void:
+func mortgage_property(property: Property, bank: Banker) -> void:
 	pass
 	
-func unmortgage_property(property: PropertyTile, bank: Banker ) -> void:
+func unmortgage_property(property: Property, bank: Banker ) -> void:
 	pass
 
 func use_getoutofjailfree() -> void:
@@ -86,7 +92,7 @@ func pay_jail_fine(bank:Banker):
 	pay(50, bank)
 	self.injail = false
 	self.jail_turns = 0
-	print(self.Name, " is no longer in jail")
+	print(self.playerName, " is no longer in jail")
 
 func stay_in_jail():
 	if self.jail_turns > 0:

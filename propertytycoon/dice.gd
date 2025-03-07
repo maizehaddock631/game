@@ -12,8 +12,8 @@ func roll() -> int:
 	#timer.start()
 	dice_animation.play("rolling")
 	print("you rolled a " + str(number));
-	#rand_num = number
-	return number
+	rand_num = number
+	return rand_num
 	
 func _on_timer_timeout() -> void:
 	match rand_num:

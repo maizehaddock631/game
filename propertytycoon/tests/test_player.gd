@@ -1,10 +1,10 @@
 extends GutTest
 
 func test_pay():
-	var player : Player = Player.new("Milly")
+	var player : Player = Player.new()
 	var property : PropertyTile = PropertyTile.new()
 	var bank : Banker = Banker.new()
-	var player2 : Player = Player.new("Nelly")
+	var player2 : Player = Player.new()
 	
 	player.pay(200, bank)
 	assert_eq(player.balance, 1300, "Player should've lost money")
@@ -15,7 +15,7 @@ func test_pay():
 	assert_eq(bank.balance, 50200, "Bank funds should've satyed the same")
 
 func test_buypropertypass():
-	var player : Player = Player.new("Nelly")
+	var player : Player = Player.new()
 	var property : PropertyTile = PropertyTile.new()
 	var bank : Banker = Banker.new()
 	property.propertycost = 500
@@ -31,7 +31,7 @@ func test_buypropertypass():
 	assert(property not in bank.properties, "Bank should no longer own this property")
 	
 func test_buypropertyfail():
-	var player : Player = Player.new("Jhardelle")
+	var player : Player = Player.new()
 	var property : PropertyTile = PropertyTile.new()
 	var bank : Banker = Banker.new()
 	property.propertycost = 2000
@@ -47,7 +47,7 @@ func test_buypropertyfail():
 	assert(property in bank.properties, "Bank should own this property")
 
 func test_sellproperty():
-	var player : Player = Player.new("Milly")
+	var player : Player = Player.new()
 	var property : PropertyTile = PropertyTile.new()
 	var bank : Banker = Banker.new()
 	property.propertycost = 2000
@@ -64,7 +64,7 @@ func test_sellproperty():
 	assert_eq(property.propertyowner, bank, "Property owner should be bank")
 	
 func test_getoutofjailfreepass():
-	var player : Player = Player.new("Bashirah")
+	var player : Player = Player.new()
 	player.injail = true
 	player.get_out_of_jail_free = 2
 	
@@ -74,7 +74,7 @@ func test_getoutofjailfreepass():
 	assert_eq(player.injail, false, "Player should no longer be in jail")
 
 func test_getoutofjailfreefail():
-	var player : Player = Player.new("Bashirah")
+	var player : Player = Player.new()
 	player.injail = true
 	player.get_out_of_jail_free = 0
 	
@@ -84,7 +84,7 @@ func test_getoutofjailfreefail():
 	assert_eq(player.injail, true, "Player should still be in jail")
 
 func test_declarebankruptcy():
-	var player : Player = Player.new("Gabi")
+	var player : Player = Player.new()
 	var bank : Banker = Banker.new()
 	player.declare_bankruptcy(bank)
 	
@@ -93,7 +93,7 @@ func test_declarebankruptcy():
 	assert_eq(bank.balance, 51500, "Bank should have players money")
 
 func test_jailfine():
-	var player = Player.new("Jhardelle")
+	var player = Player.new()
 	var bank = Banker.new()
 	player.injail = true
 	

@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b7i56ryrcejjh"]
 
-[ext_resource type="Script" path="res://card_type_tile.gd" id="1_qabe4"]
-
+[ext_resource type="Script" uid="uid://cg46bm2lvlek4" path="res://card_type_tile.gd" id="1_qabe4"]
 
 [node name="CardTypeTile" type="Node2D"]
 script = ExtResource("1_qabe4")

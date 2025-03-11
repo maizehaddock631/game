@@ -14,6 +14,10 @@ var has_completed_loop: bool
 var get_out_of_jail_free: int
 var is_bankrupt: bool
 
+func get_properties():
+	for property in properties:
+		return property.propertyname
+	
 func pay(amount: int, recipient: Node) -> void:
 	if recipient is Banker:
 		print("Paid ", amount, " to the bank")
@@ -44,6 +48,7 @@ func roll(dice: Dice, dice_2: Dice):
 			print("You are moving " + str(addedNum) + " spaces!")
 			diceCount+=1
 	return addedNum
+	##implement escape attempt here
 
 func move(spaces: int, game_spaces: Array, timer: Timer):
 	#can test by changing int to a specific number
@@ -79,7 +84,7 @@ func move(spaces: int, game_spaces: Array, timer: Timer):
 	#print("this runs")
 	#print(current_position-1)
 	#print(game_spaces[current_position-1])
-	#
+	
 	
 
 func buy_property(property: Property, bank: Banker) -> void:
@@ -111,10 +116,23 @@ func sell_property(property: Property, bank: Banker) -> void:
 		print("You have sold ", property.propertyname)
 
 func mortgage_property(property: Property, bank: Banker) -> void:
-	pass
+	##give option whether to proceed
+	self.properties.erase(property)
+	bank.properties.append(property)
+	var value = property.propertycost / 2
+	bank.pay(value, self)
+	property.propertyowner = bank
+	print(self.playerName, " has mortgaged ", property.propertyname)
+	
 	
 func unmortgage_property(property: Property, bank: Banker ) -> void:
-	pass
+	var value = (property.propertycost / 2) * 1.1
+	##give option whether to proceed
+	self.pay(value, bank)
+	self.properties.append(property)
+	bank.properties.erase(property)
+	property.propertyowner = self
+	print(self.playerName, " has unmortgaged ", property.propertyname)
 
 func use_getoutofjailfree() -> void:
 	if self.injail == false:
@@ -148,4 +166,25 @@ func stay_in_jail():
 	elif self.jail_turns == 0:
 		print("You no longer have to stay in jail. You're free!")
 		self.injail = false
-	
+
+func buy_house(property: Property, bank: Banker):
+	pass
+
+func sell_house(property: Property, bank: Banker):
+	pass
+
+func buy_hotel(property: Property, bank:Banker):
+	pass
+
+func sell_hotel(property: Property, bank: Banker):
+	pass
+
+func trade_assets(player: Player):
+	var properties = self.properties
+	self.properties = player.properties
+	player.properties = properties
+	print(self.playerName, " has successfully traded with ", player.playerName)
+	print(self.playerName, " now owns ", player.get_properties())
+
+func place_bid():
+	pass

@@ -103,3 +103,78 @@ func test_jailfine():
 	assert_eq(bank.balance, 50050)
 	assert_eq(player.injail, false)
 	assert_eq(player.jail_turns, 0)
+	
+func test_stayinjail():
+	var player = Player.new()
+	player.jail_turns = 2
+	player.injail = true
+	player.stay_in_jail()
+	assert_eq(player.jail_turns, 1, "Player should have one less round in jail")
+	##implement test to make sure position is correct
+
+func test_tradeassets():
+	var player = Player.new()
+	var player2 = Player.new()
+	player.playerName = "Nelly"
+	player2.playerName = "Gabi"
+	var property1 = Property.new()
+	var property2 = Property.new()
+	property2.propertyname = "property2"
+	var property3 = Property.new()
+	property3.propertyname = "property3"
+	
+	player.properties = [property1]
+	player2.properties = [property2, property3]
+	
+	player.trade_assets(player2)
+	
+	assert_eq(player.properties.size(), 2, "The amount of properties player one has should be the same as what player 2 had")
+	assert_eq(player2.properties.size(), 1, "The amount of properties player two has should be the same as what player 1 had")
+	assert(player.properties.has(property2))
+	assert(player.properties.has(property3))
+
+##implement test move method
+
+func test_mortgageproperty():
+	var bank = Banker.new()
+	var player = Player.new()
+	var property = Property.new()
+	var property2 = Property.new()
+	var property3 = Property.new()
+	player.properties = [property, property2]
+	player.playerName = "Gabi"
+	property.propertycost = 400
+	property.propertyname = "The Old Creek"
+	property.propertyowner = player
+	bank.properties = [property3]
+	
+	player.mortgage_property(property, bank)
+	
+	assert(player.properties == [property2], "The player should now own one less property")
+	assert_eq(player.balance, 1700, "Player should've gained some money")
+	assert_eq(property.propertyowner, bank, "the bank should now own the property")
+	assert_eq(bank.balance,49800, "the bank should've lost some money")
+	assert(bank.properties == [property3, property])
+
+func test_unmortgageproperty():
+	var bank = Banker.new()
+	var player = Player.new()
+	var property = Property.new()
+	var property2 = Property.new()
+	var property3 = Property.new()
+	player.properties = [property]
+	player.playerName = "Bashirah"
+	property2.propertycost = 400
+	property2.propertyname = "The Old Creek"
+	property2.propertyowner = bank
+	bank.properties = [property3, property2]
+	
+	player.unmortgage_property(property2, bank)
+	
+	assert(player.properties == [property, property2], "The player should now own two properties")
+	assert_eq(player.balance, 1280, "Player should've lost some money")
+	assert_eq(property2.propertyowner, player, "player should now own the property")
+	assert_eq(bank.balance,50220, "the bank should've gained some money")
+	assert(bank.properties == [property3], "bank should now own one property")
+
+	

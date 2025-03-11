@@ -28,6 +28,7 @@ var count : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#give players time to choose a token and give themselves a name
 	dice.hide();
 	dice_2.hide();
 	dice_button.hide();
@@ -43,7 +44,7 @@ func _process(delta):
 func _on_dice_button_pressed():
 	var num = players[current_turn].roll(dice, dice_2)
 	players[current_turn].move(num, game_spaces, timer)
-	player_turn(game_spaces[players[current_turn].current_position-1], players[current_turn].current_position)
+	#player_turn(game_spaces[players[current_turn].current_position-1], players[current_turn].current_position)
 	end_turn()
 
 #Calls the roll function from each dice instance, 

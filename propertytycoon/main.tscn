@@ -1,9 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://c38mv1ehy76yq"]
+[gd_scene load_steps=22 format=3 uid="uid://c38mv1ehy76yq"]
 
-[ext_resource type="Script" path="res://control.gd" id="1_rgmk4"]
+[ext_resource type="Script" uid="uid://7bpxuiyel11i" path="res://control.gd" id="1_rgmk4"]
 [ext_resource type="PackedScene" uid="uid://di37b7w15wrtk" path="res://banker.tscn" id="2_fcj45"]
 [ext_resource type="Texture2D" uid="uid://bom70q3skogfn" path="res://images/Screenshot 2025-02-12 082606.png" id="2_jihuq"]
-[ext_resource type="Script" path="res://board.gd" id="3_jdhmb"]
+[ext_resource type="Script" uid="uid://hoxwdpsvircf" path="res://board.gd" id="3_jdhmb"]
 [ext_resource type="PackedScene" uid="uid://uvbf7jklkn0l" path="res://dice.tscn" id="4_hfuxw"]
 [ext_resource type="Texture2D" uid="uid://dmncfc5q2ioio" path="res://board2.png" id="5_1k8yt"]
 [ext_resource type="PackedScene" uid="uid://chvedidpyg1lm" path="res://board.tscn" id="5_phwyp"]
@@ -11,14 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://co4lcwdcl8txp" path="res://chance_board.tscn" id="7_mapwc"]
 [ext_resource type="Theme" uid="uid://cv8l8a5rgl4yk" path="res://Default.tres" id="7_r74ql"]
 [ext_resource type="PackedScene" uid="uid://bmyeew58mk33d" path="res://chest_board.tscn" id="8_y8wle"]
-[ext_resource type="Script" path="res://go.gd" id="10_whyee"]
-[ext_resource type="Script" path="res://pot_luck.gd" id="11_iwhwm"]
-[ext_resource type="Script" path="res://property_tile.gd" id="11_kassn"]
-[ext_resource type="Script" path="res://tax.gd" id="12_8y2uq"]
-[ext_resource type="Script" path="res://opportunity_knocks.gd" id="13_eictk"]
-[ext_resource type="Script" path="res://just_visiting_jail.gd" id="14_x4aet"]
-[ext_resource type="Script" path="res://free_parking.gd" id="15_ljwko"]
-[ext_resource type="Script" path="res://go_to_jail.gd" id="16_857qe"]
+[ext_resource type="Texture2D" uid="uid://b7a0yhqvhfkqn" path="res://gameAssets/token assets/IMG_5677.PNG" id="10_getpj"]
+[ext_resource type="Script" uid="uid://gh0l4pba4uyq" path="res://go.gd" id="10_whyee"]
+[ext_resource type="Script" uid="uid://bnee34nb5y474" path="res://pot_luck.gd" id="11_iwhwm"]
+[ext_resource type="Script" uid="uid://djsm8u827xanr" path="res://property_tile.gd" id="11_kassn"]
+[ext_resource type="Texture2D" uid="uid://c1s4qhovx0oep" path="res://gameAssets/token assets/IMG_5678.PNG" id="11_ryguw"]
+[ext_resource type="Script" uid="uid://bne2bi01q06dq" path="res://tax.gd" id="12_8y2uq"]
+[ext_resource type="Script" uid="uid://63xrkgrjroih" path="res://opportunity_knocks.gd" id="13_eictk"]
+[ext_resource type="Script" uid="uid://dxu4fqq2h8as0" path="res://just_visiting_jail.gd" id="14_x4aet"]
+[ext_resource type="Script" uid="uid://s51amltac011" path="res://free_parking.gd" id="15_ljwko"]
+[ext_resource type="Script" uid="uid://diu02lh54boqf" path="res://go_to_jail.gd" id="16_857qe"]
 
 [node name="GameManager" type="Control" node_paths=PackedStringArray("game_spaces")]
 layout_mode = 3
@@ -92,13 +94,15 @@ visible = false
 position = Vector2(-34, -50)
 
 [node name="Player2" parent="." instance=ExtResource("6_5f51y")]
-position = Vector2(1123, 584)
-scale = Vector2(0.160156, 0.167968)
+position = Vector2(1107, 600)
+scale = Vector2(0.0330403, 0.0284422)
+texture = ExtResource("10_getpj")
 playerName = "Jhardelle"
 
 [node name="Player" parent="." instance=ExtResource("6_5f51y")]
-position = Vector2(1099.38, 620.5)
-scale = Vector2(0.134765, 0.132812)
+position = Vector2(1072, 591)
+scale = Vector2(0.0500518, 0.0485837)
+texture = ExtResource("11_ryguw")
 playerName = "Milly"
 properties = []
 

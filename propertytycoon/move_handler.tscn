@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://drgbmff7hab4i"]
+
+[ext_resource type="AudioStream" uid="uid://bshpc3pxlek74" path="res://Music/sfx/277212__thedweebman__8-bit-jump.wav" id="1_cvuyu"]
+
+[node name="Move_Handler" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_cvuyu")
+bus = &"Sfx"

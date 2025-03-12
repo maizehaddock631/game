@@ -6,11 +6,9 @@ res://player.tscn
 res://property_tile.tscn
 res://chest_board.tscn
 res://property_card.tscn
-res://player.gd
-res://property_card.gd
-res://property_tile.gd
 res://opportunity_knocks.tscn
 res://potluck.tscn
-res://opportunity_knocks_card.gd
-res://potluck_card.gd
-res://Default.tres
+res://Main menu/main_menu.tscn
+res://New Game menu/new_game_menu.tscn
+res://main_menu.gd
+res://New Game menu/new_game_menu.gd

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ct74nnhbfhyi0"]
 
-[ext_resource type="Script" path="res://opportunity_knocks_card.gd" id="1_umw4a"]
+[ext_resource type="Script" uid="uid://dcfwirurxorau" path="res://opportunity_knocks_card.gd" id="1_umw4a"]
 [ext_resource type="Texture2D" uid="uid://417x86cg62u0" path="res://thumbnail_special tile.png" id="2_veil4"]
 
 [node name="opportunity_knocks_card" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7k4wjn3hrir4"]
 
-[ext_resource type="Script" path="res://property_card.gd" id="1_o78vb"]
+[ext_resource type="Script" uid="uid://cf5vpqnbdqhgd" path="res://property_card.gd" id="1_o78vb"]
 [ext_resource type="Texture2D" uid="uid://417x86cg62u0" path="res://thumbnail_special tile.png" id="2_y4p7u"]
 [ext_resource type="Texture2D" uid="uid://da21hr6rmx1i2" path="res://randomcolour.png" id="3_fau1o"]
 [ext_resource type="FontFile" uid="uid://bjmijbducrgmq" path="res://SpaceMono-Bold.ttf" id="4_ifpov"]

@@ -30,7 +30,7 @@ func pay(amount: int, recipient: Node) -> void:
 		self.balance -= amount
 		recipient.balance += amount
 	
-func roll(dice: Dice, dice_2: Dice):
+func roll(dice: Dice, dice_2: Dice, game_spaces: Array):
 	var isNotADouble : bool = false 
 	var addedNum : int = 0
 
@@ -49,6 +49,12 @@ func roll(dice: Dice, dice_2: Dice):
 			addedNum = addedNum + dice1 + dice2
 			print("You are moving " + str(addedNum) + " spaces!")
 			diceCount+=1
+			
+			#if three doubles are rolled in a row the player goes to jail
+			if diceCount==3:
+				print('three doubles in a row , go to jail!')
+				go_to_jail(game_spaces)
+				return 0
 	return addedNum
 
 func move(spaces: int, game_spaces: Array, timer: Timer):
@@ -139,8 +145,13 @@ func declare_bankruptcy(bank: Banker) -> void:
 	self.is_bankrupt = true
 	print("You have now been declared bankrupt and you're eliminated from the game")
 	
-func go_to_jail():
-	pass
+func go_to_jail(game_spaces: Array):
+	#updating the player's position to the jail position
+	current_position = 10
+	position = game_spaces[10].position
+	self.injail= true
+	jail_turns=3
+	print(self.playerName,'has been sent to jail')
 	
 func pay_jail_fine(bank:Banker):
 	pay(50, bank)

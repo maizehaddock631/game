@@ -1,9 +1,4 @@
-Sprite2D
-TextureRect
-Button
 Label
-Timer
-Node2D
-CanvasLayer
-Node
-Marker2D
+RichTextLabel
+HBoxContainer
+ScrollContainer

@@ -1,14 +1,4 @@
-res://main.tscn
-res://control.gd
-res://tests/testrunner.tscn
-res://banker.tscn
-res://player.tscn
-res://property_tile.tscn
-res://chest_board.tscn
-res://property_card.tscn
-res://opportunity_knocks.tscn
-res://potluck.tscn
-res://Main menu/main_menu.tscn
-res://New Game menu/new_game_menu.tscn
-res://main_menu.gd
-res://New Game menu/new_game_menu.gd
+res://move_handler.tscn
+res://startmenu/Main menu/main_menu.tscn
+res://startmenu/New Game menu/new_game_menu.gd
+res://startmenu/Settings menu/settings_tab_container.tscn

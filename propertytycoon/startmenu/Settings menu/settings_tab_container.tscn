@@ -1,0 +1,130 @@
+[gd_scene load_steps=2 format=3 uid="uid://brqlep2a8w14q"]
+
+[ext_resource type="PackedScene" uid="uid://bmw7ktne2yibu" path="res://startmenu/Settings menu/audio_slider_settings.tscn" id="1_t20ad"]
+
+[node name="Settings_Tab_Container" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = 9.0
+offset_right = -5.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 47.0
+offset_right = 2.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Game Rules" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Game Rules"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Game Rules/ScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Game Rules/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+text = "1. Players: 2-6 players, each with a token (boot, smartphone, ship, hatstand, cat, or iron).
+2. Turns: Roll two dice to move clockwise around the board. A player who rolls doubles gets another turn; rolling doubles three times sends them to jail.
+3. Starting Money: Each player starts with £1,500. The bank has £50,000, and players cannot borrow money from the bank.
+4. Cards: Draw “pot luck” or “opportunity knocks” cards when landing on corresponding spaces, and follow the instructions. Replace the card at the bottom of the pile.
+5. Purchasing Properties: Players can buy properties after completing one full circuit of the board. Properties are purchased from the bank at listed prices.
+6. Auctioning: If a property is not bought by a player, it is auctioned by the bank to the highest bidder.
+7. Rent: Pay rent when landing on an owned property. Rent is higher if the owner has a full color group or if properties have houses or hotels.
+8. Bankruptcy: If a player can't pay rent, they must sell assets. If they cannot pay their debts, they go bankrupt and are out of the game.
+9. No Borrowing: Players cannot lend or borrow money from each other or the bank.
+10. Property Development: Players can only buy houses or hotels on properties within a full color set.
+11. Property Selling: Properties can be sold back to the bank for their original value, but only when no houses or hotels are on the property.
+12. Mortgaging: Players can mortgage properties for half their value, but no rent is collected while mortgaged.
+13. Free Parking: Fines accumulate on free parking. If a player lands on it, they collect all fines.
+14. Jail Rules: Players who land in jail must pay £50 to be released or skip their next two turns. They can also use a \"Get Out of Jail Free\" card.
+15. Houses and Hotels: Properties can have up to one hotel or up to four houses before building a hotel. A hotel costs the same as five houses.
+16. Fines: If a player needs to raise money, they can sell assets or mortgage properties.
+17. Rent with Houses: Rent increases when properties are developed with houses or hotels.
+18. Auction Rules: Auctions are for properties not bought outright and must be bid on by players who have completed a circuit.
+19. Banker’s Role: The banker distributes money, handles property auctions, and ensures correct transactions.
+20. Jail Duration: After two turns in jail, players return to \"just visiting\" and resume normal gameplay."
+
+[node name="Themes" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Themes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Themes/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Themes/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sound/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Audio_Slider_Settings" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_t20ad")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Audio_Slider_Settings2" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_t20ad")]
+layout_mode = 2
+
+[node name="Audio_Slider_Settings3" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_t20ad")]
+layout_mode = 2
+bus_name = "Sfx"

@@ -49,7 +49,7 @@ func _process(delta):
 	
 # Called when the roll button is pressed
 func _on_dice_button_pressed():
-	var num = all_players[current_turn].roll(dice, dice_2)
+	var num = all_players[current_turn].roll(dice, dice_2, game_spaces)
 	all_players[current_turn].move(num, game_spaces, timer)
 	timer.start()
 	#player_turn(game_spaces[all_players[current_turn].current_position-1], current_player)

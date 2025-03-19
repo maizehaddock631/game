@@ -1,4 +1,14 @@
 Label
-RichTextLabel
-HBoxContainer
 ScrollContainer
+TextureRect
+VBoxContainer
+HScrollBar
+VScrollBar
+Button
+Board
+Node2D
+Sprite2D
+Timer
+CanvasLayer
+Node
+Marker2D

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmw7ktne2yibu"]
 
-[ext_resource type="Script" uid="uid://dh64wwjlpk5jv" path="res://Settings menu/audio_slider_settings.gd" id="1_iinnv"]
+[ext_resource type="Script" path="res://Settings menu/audio_slider_settings.gd" id="1_iinnv"]
 
 [node name="Audio_Slider_Settings" type="Control"]
 layout_mode = 3

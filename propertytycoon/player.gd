@@ -64,6 +64,10 @@ func move(spaces: int, game_spaces: Array, timer: Timer):
 	var count : int = 0
 	var extra_roll : int 
 	
+	#here is just to test the tiles
+	#num = 3
+	#print(str(num))
+	
 	while num != 0 and game_spaces[current_position] != game_spaces[39]:
 		var tween = create_tween()
 		tween.tween_property(self, "position", game_spaces[current_position].position, 1)
@@ -152,6 +156,8 @@ func go_to_jail(game_spaces: Array):
 	self.injail= true
 	jail_turns=3
 	print(self.playerName,'has been sent to jail')
+	var tween = create_tween()
+	tween.tween_property(self, "position", position, 1)
 	
 func pay_jail_fine(bank:Banker):
 	pay(50, bank)
@@ -166,4 +172,34 @@ func stay_in_jail():
 	elif self.jail_turns == 0:
 		print("You no longer have to stay in jail. You're free!")
 		self.injail = false
+
+func buy_house(property: Property, bank:Banker) :
+	# Check if property is owned by the player
+	if property.propertyowner != self:
+		print("You don't own this property!")
+		return
+
+	# Ensure the player owns all properties in the color group
+	var color_group = colour_sets.get(property.colour, [])
+	if not owns_all_property_colours(color_group):
+		print("You need to own all properties in the", property.colour, "group to build a house.")
+		return
+
+	# Check if the player has enough funds
+	var house_cost = 100  # Example house price; adjust as needed
+	if self.balance < house_cost:
+		print("Not enough funds to buy a house!")
+		return
+
+	# Add the house
+	property.numofhouses += 1
+	self.balance -= house_cost
+	bank.balance += house_cost
+	print("House added to", property.propertyname, ". Total houses:", property.numofhouses)
+
+func owns_all_property_colours(colours:Array) -> bool:
+	for property in colours:
+		if property not in self.properties:
+			return false
+	return true
 	

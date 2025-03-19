@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://dvmpx4mo50jjx"]
 
-[ext_resource type="Script" uid="uid://c8hkr0rbno2vb" path="res://startmenu/main_menu.gd" id="1_a2vl1"]
-[ext_resource type="Texture2D" uid="uid://c6qvqv15rosax" path="res://startmenu/Images/IMG_0123.jpeg" id="2_1jbbm"]
-[ext_resource type="PackedScene" uid="uid://bwhufcth2ph3g" path="res://startmenu/Settings menu/settings_menu.tscn" id="3_8mx5x"]
-[ext_resource type="AudioStream" uid="uid://bwj0g5t74bwu3" path="res://startmenu/Music/786269__sergequadrado__indie-game-soundtrack.mp3" id="4_ow0ps"]
-[ext_resource type="PackedScene" uid="uid://b4mpmnfd1n8b" path="res://startmenu/New Game menu/new_game_menu.tscn" id="5_3qbsj"]
+[ext_resource type="Script" uid="uid://dwju72r4qbhgb" path="res://main_menu.gd" id="1_a2vl1"]
+[ext_resource type="Texture2D" uid="uid://c6qvqv15rosax" path="res://images/IMG_0123.jpeg" id="2_1jbbm"]
+[ext_resource type="PackedScene" uid="uid://bwhufcth2ph3g" path="res://Settings menu/settings_menu.tscn" id="3_8mx5x"]
+[ext_resource type="AudioStream" uid="uid://bwj0g5t74bwu3" path="res://Music/786269__sergequadrado__indie-game-soundtrack.mp3" id="4_ow0ps"]
+[ext_resource type="PackedScene" uid="uid://b4mpmnfd1n8b" path="res://New Game menu/new_game_menu.tscn" id="5_3qbsj"]
 
 [sub_resource type="SystemFont" id="SystemFont_hnpjw"]
 font_names = PackedStringArray("Monospace")
@@ -24,18 +24,23 @@ script = ExtResource("1_a2vl1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_right = 1.093
+anchor_bottom = 1.039
+offset_top = -8.0
+offset_right = -107.136
+offset_bottom = -22.272
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_1jbbm")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 12
@@ -54,15 +59,15 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Separator"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = -263.0
-offset_right = 1123.0
-offset_bottom = -103.0
+offset_left = -17.0
+offset_top = -285.0
+offset_right = 1135.0
+offset_bottom = -125.0
 theme_override_colors/font_color = Color(0.733333, 0.196078, 0.615686, 0.890196)
 theme_override_colors/font_outline_color = Color(0.34106, 0.146135, 0.513489, 1)
 theme_override_constants/outline_size = 24
 theme_override_fonts/font = SubResource("SystemFont_hnpjw")
-theme_override_font_sizes/font_size = 125
+theme_override_font_sizes/font_size = 112
 text = "PROPERTY TYCOON"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -128,7 +133,6 @@ position = Vector2(1411, -129)
 stream = ExtResource("4_ow0ps")
 volume_db = 14.119
 autoplay = true
-bus = &"Music"
 
 [node name="NewGame_menu" parent="." instance=ExtResource("5_3qbsj")]
 visible = false

@@ -15,10 +15,19 @@ var all_players = []
 var current_player = Player
 
 @onready var property_card_scene: PackedScene = preload("res://property_card.tscn")
+@onready var ok_card_scene: PackedScene = preload("res://opportunity_knocks.tscn")
+@onready var ok_scene: PackedScene = preload("res://opportunity_knocks.tscn")
+@onready var potluck_card_scene: PackedScene = preload("res://potluck.tscn")
+@onready var pl_scene: PackedScene = preload("res://potluck.tscn")
+
 @onready var card_spawn = $CanvasLayer/CardSpawn
-@onready var player_money: Label = $PlayerMoney
+
+@onready var bank_label: Label = $bank_label
+@onready var player_money_lbl: Label = $player_money_lbl
+@onready var player_turn_label: Label = $player_turn_label
 @onready var player_properties: Label = $PlayerProperties
 @onready var bank = $Banker
+@onready var property_lbl: Label = $ScrollContainer/VBoxContainer/TextureRect/property_lbl
 
 var count : int = 0
 @export var final_space : Marker2D
@@ -29,6 +38,7 @@ var count : int = 0
 @onready var property_button: Button = $PropertyButton
 @onready var turn_action: Button = $"Turn Action"
 
+
 signal turn_end
 signal finished_moving
 
@@ -38,10 +48,21 @@ func _ready() -> void:
 	dice.hide();
 	dice_2.hide();
 	dice_button.hide();
+	property_button.hide()
+	
+	player_money_lbl.text = "Player 1 " + str(player.balance) + "\nPlayer 2 " + str(player2.balance)
+	bank_label.text = "Bank: " + str(bank.balance)
+	
 	number_of_spaces = game_spaces.size()
 	all_players = [player, player2]
+	
+	player_turn_label.text = "it's " + all_players[current_turn].name + " turn"
+	
+	property_lbl.text = "Player 1 properties: " +str(player.properties) + "\nPlayer 2 properties: " +str(player2.properties)
+	
 	start_turn()
 	print(number_of_spaces)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -50,7 +71,7 @@ func _process(delta):
 # Called when the roll button is pressed
 func _on_dice_button_pressed():
 	var num = all_players[current_turn].roll(dice, dice_2, game_spaces)
-	all_players[current_turn].move(num, game_spaces, timer)
+	all_players[current_turn].move(30, game_spaces, timer)
 	timer.start()
 	#player_turn(game_spaces[all_players[current_turn].current_position-1], current_player)
 	await turn_end
@@ -72,13 +93,16 @@ func player_turn(Tile, place):
 	
 	if final_space.type == 1:
 		print ("you landed on a property")
+		property_button.show()
 		_landed_on_property(game_spaces[all_players[current_turn].current_position-1])
 
 	if final_space.type == 2:
 		print ("you landed on opportunity knocks")
+		_landed_on_oppo_knocks(all_players[current_turn])
 
 	if final_space.type == 3:
-		print("potluck")
+		print("you landed on potluck")
+		_landed_on_potluck(all_players[current_turn])
 
 	if final_space.type == 4:
 		print("tax")
@@ -91,21 +115,20 @@ func player_turn(Tile, place):
 
 	if final_space.type == 7:
 		print("go to jail")
+		player.go_to_jail(game_spaces)
 
 	#if (game_spaces[place-1]) == game_spaces[1] and firstround !=true
 		#add £200
-
-	#need to send player position back to 0 in array, call func to add money
 
 func _landed_on_property(property: Property):
 	final_property = property
 	print("you landed on a property!")
 	print(property)
-	var card : propertyCard = property_card_scene.instantiate()
+	var property_card : propertyCard = property_card_scene.instantiate()
 	print(property.propertycost)
-	card_spawn.add_child(card)
-	card.make_card(property.propertycost, property.tilename)
-	card.visible = true
+	card_spawn.add_child(property_card)
+	property_card.make_card(property.propertycost, property.tilename)
+	property_card.visible = true
 
 func _on_property_button_pressed() -> void:
 	card_bought(final_property)
@@ -113,18 +136,38 @@ func _on_property_button_pressed() -> void:
 func card_bought(property : Property):
 	all_players[current_turn].buy_property(property, bank)
 	
-func update_label(int, array):
-	player_money = int
-	player_properties = array
+func _landed_on_oppo_knocks(Player):
+	var ok_card : oppoKnocksCard = ok_card_scene.instantiate()
+	var new_ok : OpportunityKnocks = ok_scene.instantiate()
+	new_ok._dividend_50(Player, bank)
+	card_spawn.add_child(ok_card)
+	ok_card._make_card(new_ok.ok_des)
+	ok_card.visible = true
+	
+func _landed_on_potluck(Player):
+	var pl_card : potluckCard = potluck_card_scene.instantiate()
+	var new_pl : pot_luck = pl_scene.instantiate()
+	new_pl._inherit_200(Player, bank)
+	card_spawn.add_child(pl_card)
+	pl_card._make_card(new_pl.pl_des)
+	pl_card.visible = true
+	
+func update_label():
+	player_money_lbl.text = "Player 1 " + str(player.balance) + "\nPlayer 2 " + str(player2.balance)
+	bank_label.text = "Bank: " + str(bank.balance)
+	player_turn_label.text = "it's " + all_players[current_turn].name + " turn"
+	property_lbl.text = "Player 1 properties: " +str(player.properties) + "\nPlayer 2 properties: " +str(player2.properties)
 	
 func start_turn():
 	var current_player = all_players[current_turn]
 	print("It's ", current_player.playerName, "'s turn!")
 	
 func end_turn():
+	property_button.hide()
 	current_turn = (current_turn + 1) % all_players.size() #the next turn will always loop back to the beginning when all the players have had a turn
 	print("Turn ended. Next up: ", all_players[current_turn].playerName)
 	current_player = all_players[current_turn]
+	update_label()
 	start_turn()
 
 #not using rn

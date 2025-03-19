@@ -8,6 +8,9 @@ extends Control
 @onready var player_names_container = $MarginContainer/VBoxContainer as VBoxContainer
 
 
+
+
+
 var num_players = 2
 var game_version = 'Full'
 var player_name_inputs =[]
@@ -24,8 +27,6 @@ func _ready() -> void:
 		print("Players : ", num_players)
 		print("Game Version : ", game_version)
 		get_tree().change_scene_to_file("res://main.tscn")
-		#Transition to the game scene
-		#get_tree.change_scene_to_file("Add the game scene here")
 	
 	#Connect signals
 	player_count_spinbox.connect("value_changed", func on_player_count_changed(value: float):
@@ -41,6 +42,7 @@ func _ready() -> void:
 	game_version_optionButton.add_item("Full Version")
 	game_version_optionButton.add_item("Timed Version")
 	
+	
 func create_player_name_inputs():
 	# Clear any previous input fields
 	for input_field in player_name_inputs:
@@ -54,10 +56,6 @@ func create_player_name_inputs():
 		line_edit.placeholder_text = "Player " + str(i + 1) + "'s Name"
 		player_names_container.add_child(line_edit)
 		player_name_inputs.append(line_edit)
-	
-	
-	
-	
 	
 	
 	

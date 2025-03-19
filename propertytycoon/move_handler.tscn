@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://drgbmff7hab4i"]
 
-[ext_resource type="AudioStream" uid="uid://bshpc3pxlek74" path="res://startmenu/Music/sfx/277212__thedweebman__8-bit-jump.wav" id="1_cvuyu"]
+[ext_resource type="AudioStream" uid="uid://bshpc3pxlek74" path="res://Music/sfx/277212__thedweebman__8-bit-jump.wav" id="1_cvuyu"]
 
 [node name="Move_Handler" type="Node2D"]
 

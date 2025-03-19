@@ -2,15 +2,11 @@
 
 [ext_resource type="Script" uid="uid://7bpxuiyel11i" path="res://control.gd" id="1_rgmk4"]
 [ext_resource type="PackedScene" uid="uid://di37b7w15wrtk" path="res://banker.tscn" id="2_fcj45"]
-[ext_resource type="Texture2D" uid="uid://bom70q3skogfn" path="res://images/Screenshot 2025-02-12 082606.png" id="2_jihuq"]
-[ext_resource type="Script" uid="uid://hoxwdpsvircf" path="res://board.gd" id="3_jdhmb"]
 [ext_resource type="PackedScene" uid="uid://uvbf7jklkn0l" path="res://dice.tscn" id="4_hfuxw"]
 [ext_resource type="Texture2D" uid="uid://dmncfc5q2ioio" path="res://board2.png" id="5_1k8yt"]
-[ext_resource type="PackedScene" uid="uid://chvedidpyg1lm" path="res://board.tscn" id="5_phwyp"]
 [ext_resource type="PackedScene" uid="uid://3qak4d3dfj50" path="res://player.tscn" id="6_5f51y"]
-[ext_resource type="PackedScene" uid="uid://co4lcwdcl8txp" path="res://chance_board.tscn" id="7_mapwc"]
 [ext_resource type="Theme" uid="uid://cv8l8a5rgl4yk" path="res://Default.tres" id="7_r74ql"]
-[ext_resource type="PackedScene" uid="uid://bmyeew58mk33d" path="res://chest_board.tscn" id="8_y8wle"]
+[ext_resource type="Texture2D" uid="uid://degtvhfsot4on" path="res://boardfinalish.png" id="9_getpj"]
 [ext_resource type="Texture2D" uid="uid://b7a0yhqvhfkqn" path="res://gameAssets/token assets/IMG_5677.PNG" id="10_getpj"]
 [ext_resource type="Script" uid="uid://gh0l4pba4uyq" path="res://go.gd" id="10_whyee"]
 [ext_resource type="Script" uid="uid://bnee34nb5y474" path="res://pot_luck.gd" id="11_iwhwm"]
@@ -21,6 +17,10 @@
 [ext_resource type="Script" uid="uid://dxu4fqq2h8as0" path="res://just_visiting_jail.gd" id="14_x4aet"]
 [ext_resource type="Script" uid="uid://s51amltac011" path="res://free_parking.gd" id="15_ljwko"]
 [ext_resource type="Script" uid="uid://diu02lh54boqf" path="res://go_to_jail.gd" id="16_857qe"]
+[ext_resource type="Texture2D" uid="uid://b5c5v6rwj7lin" path="res://houseicon.png" id="19_cegan"]
+[ext_resource type="Texture2D" uid="uid://d0ibdsuc4gah2" path="res://IMG_9656.webp" id="19_getpj"]
+[ext_resource type="Texture2D" uid="uid://ci5y8bv5paed6" path="res://property bg.png" id="20_82xsv"]
+[ext_resource type="Texture2D" uid="uid://csxtqrxt2sss3" path="res://1c9a344d-4886-4b7c-9dac-ec24283c8518.jpg" id="20_ryguw"]
 
 [node name="GameManager" type="Control" node_paths=PackedStringArray("game_spaces")]
 layout_mode = 3
@@ -36,15 +36,7 @@ position = Vector2(800, 287)
 [node name="Banker" parent="." instance=ExtResource("2_fcj45")]
 position = Vector2(3, 6)
 
-[node name="Board" type="Sprite2D" parent="."]
-texture_filter = 2
-position = Vector2(797, 324)
-scale = Vector2(1, 0.962481)
-texture = ExtResource("2_jihuq")
-script = ExtResource("3_jdhmb")
-metadata/_edit_lock_ = true
-
-[node name="Board2" type="TextureRect" parent="."]
+[node name="Board" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
 offset_left = 329.0
@@ -66,66 +58,58 @@ layout_mode = 2
 [node name="DiceStuff" type="Node" parent="."]
 
 [node name="Dice" parent="DiceStuff" instance=ExtResource("4_hfuxw")]
-position = Vector2(79, 417)
+position = Vector2(708.5, 305.25)
 scale = Vector2(1.75, 1.57143)
 
 [node name="DiceButton" type="Button" parent="DiceStuff"]
-offset_left = 24.0
-offset_top = 448.0
-offset_right = 220.0
-offset_bottom = 511.0
+offset_left = 650.0
+offset_top = 336.0
+offset_right = 846.0
+offset_bottom = 399.0
 theme = ExtResource("7_r74ql")
 text = "Press to roll"
 
 [node name="Dice2" parent="DiceStuff" instance=ExtResource("4_hfuxw")]
-position = Vector2(147, 417)
+position = Vector2(776.5, 305.25)
 scale = Vector2(1.76786, 1.58929)
 
 [node name="RevealDice" type="Button" parent="DiceStuff"]
-offset_left = 10.0
-offset_top = 608.0
-offset_right = 125.0
-offset_bottom = 639.0
+offset_left = 685.0
+offset_top = 239.0
+offset_right = 800.0
+offset_bottom = 271.0
 theme = ExtResource("7_r74ql")
 text = "Dice"
 
-[node name="Boardnotworking" parent="." instance=ExtResource("5_phwyp")]
-visible = false
-position = Vector2(-34, -50)
+[node name="Boardfinalish" type="Sprite2D" parent="."]
+position = Vector2(742, 325)
+scale = Vector2(0.432292, 0.339583)
+texture = ExtResource("9_getpj")
 
 [node name="Player2" parent="." instance=ExtResource("6_5f51y")]
-position = Vector2(1107, 600)
+position = Vector2(405, 614)
 scale = Vector2(0.0330403, 0.0284422)
 texture = ExtResource("10_getpj")
 playerName = "Jhardelle"
 
 [node name="Player" parent="." instance=ExtResource("6_5f51y")]
-position = Vector2(1072, 591)
+position = Vector2(363, 603)
 scale = Vector2(0.0500518, 0.0485837)
 texture = ExtResource("11_ryguw")
 playerName = "Milly"
 properties = []
 
-[node name="ChanceBoard" parent="." instance=ExtResource("7_mapwc")]
-position = Vector2(590, 195)
-rotation = 1.18823
-scale = Vector2(0.297717, 0.308928)
-
-[node name="chest_board" parent="." instance=ExtResource("8_y8wle")]
-position = Vector2(896, 441)
-rotation = -1.94223
-scale = Vector2(0.340831, 0.370242)
-
 [node name="Board_Tiles" type="Node" parent="."]
 
 [node name="Go" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1104, 604)
+position = Vector2(390, 620)
 script = ExtResource("10_whyee")
 type = 0
 tilename = "Go"
+metadata/_edit_lock_ = true
 
 [node name="The Old Creek" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
-position = Vector2(1005, 611)
+position = Vector2(370, 538)
 script = ExtResource("11_kassn")
 propertycost = 60
 propertyowner = NodePath("../../Banker")
@@ -134,15 +118,17 @@ colour = 2
 type = 1
 tilename = "The Old Creek"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Pot luck" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(939, 610)
+position = Vector2(376, 485)
 script = ExtResource("11_iwhwm")
 type = 3
 tilename = "Potluck1"
+metadata/_edit_lock_ = true
 
 [node name="Gangster\'s Paradise" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
-position = Vector2(875, 613)
+position = Vector2(365, 431)
 script = ExtResource("11_kassn")
 propertycost = 60
 propertyowner = NodePath("../../Banker")
@@ -151,15 +137,17 @@ colour = 2
 type = 1
 tilename = "The Old Creek"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Income tax" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(808, 600)
+position = Vector2(357, 382)
 script = ExtResource("12_8y2uq")
 type = 4
 tilename = "Income Tax"
+metadata/_edit_lock_ = true
 
 [node name="Brighton station" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
-position = Vector2(737, 609)
+position = Vector2(355, 329)
 script = ExtResource("11_kassn")
 propertycost = 200
 propertyowner = NodePath("../../Banker")
@@ -168,9 +156,10 @@ colour = 9
 type = 1
 tilename = "Brighton Station"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="The Angel\'s Delight" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
-position = Vector2(677, 613)
+position = Vector2(359, 274)
 script = ExtResource("11_kassn")
 propertycost = 100
 propertyowner = NodePath("../../Banker")
@@ -179,15 +168,17 @@ colour = 0
 type = 1
 tilename = "The Angels Delight"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Opportunity knocks" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(612, 615)
+position = Vector2(363, 222)
 script = ExtResource("13_eictk")
 type = 2
 tilename = "Opportunity\\ Knocks"
+metadata/_edit_lock_ = true
 
 [node name="Potter Avenue" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
-position = Vector2(538, 611)
+position = Vector2(362, 168)
 script = ExtResource("11_kassn")
 propertycost = 100
 propertyowner = NodePath("../../Banker")
@@ -196,9 +187,10 @@ colour = 0
 type = 1
 tilename = "Potter Avenue"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Granger Drive" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
-position = Vector2(479, 606)
+position = Vector2(369, 118)
 script = ExtResource("11_kassn")
 propertycost = 120
 propertyowner = NodePath("../../Banker")
@@ -206,15 +198,17 @@ colour = 0
 type = 1
 tilename = "Granger Drive"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Just visiting jail" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(391, 602)
+position = Vector2(355, 48)
 script = ExtResource("14_x4aet")
 type = 5
 tilename = "Just Visting"
+metadata/_edit_lock_ = true
 
 [node name="Sky walker drive" type="Marker2D" parent="Board_Tiles" node_paths=PackedStringArray("propertyowner")]
-position = Vector2(374, 535)
+position = Vector2(476, 23)
 script = ExtResource("11_kassn")
 propertycost = 140
 propertyowner = NodePath("../../Banker")
@@ -223,9 +217,10 @@ colour = 6
 type = 1
 tilename = "Sky Walker Drive"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Telsa Power Co" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(371, 481)
+position = Vector2(547, 18)
 script = ExtResource("11_kassn")
 propertycost = 150
 rent = 4
@@ -233,9 +228,10 @@ colour = 5
 type = 1
 tilename = "Tesla Power Co"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Wookie hole" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(384, 432)
+position = Vector2(610, 23)
 script = ExtResource("11_kassn")
 propertycost = 140
 rent = 10
@@ -243,9 +239,10 @@ colour = 6
 type = 1
 tilename = "Wookie Hole"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Rey lane" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(382, 376)
+position = Vector2(665, 22)
 script = ExtResource("11_kassn")
 propertycost = 160
 rent = 12
@@ -253,9 +250,10 @@ colour = 6
 type = 1
 tilename = "Rey Lane"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Hove station" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(384, 324)
+position = Vector2(741, 18)
 script = ExtResource("11_kassn")
 propertycost = 200
 rent = 25
@@ -263,9 +261,10 @@ colour = 9
 type = 1
 tilename = "Hove Station"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Bishop drive" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(379, 274)
+position = Vector2(811, 25)
 script = ExtResource("11_kassn")
 propertycost = 180
 rent = 14
@@ -273,15 +272,17 @@ colour = 4
 type = 1
 tilename = "Bishop Drive"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Potluck 2" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(373, 220)
+position = Vector2(872, 48)
 script = ExtResource("11_iwhwm")
 type = 3
 tilename = "Potluck"
+metadata/_edit_lock_ = true
 
 [node name="Duhnam street" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(376, 169)
+position = Vector2(940, 25)
 script = ExtResource("11_kassn")
 propertycost = 180
 rent = 14
@@ -289,9 +290,10 @@ colour = 4
 type = 1
 tilename = "Dunham Street"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Broyles lane" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(376, 116)
+position = Vector2(1003, 27)
 script = ExtResource("11_kassn")
 propertycost = 200
 rent = 16
@@ -299,15 +301,17 @@ colour = 4
 type = 1
 tilename = "Broyles Lane"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Free parking" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(387, 50)
+position = Vector2(1093, 37)
 script = ExtResource("15_ljwko")
 type = 6
 tilename = "Free Parking"
+metadata/_edit_lock_ = true
 
 [node name="Yue fei square" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(478, 50)
+position = Vector2(1114, 122)
 script = ExtResource("11_kassn")
 propertycost = 220
 rent = 18
@@ -315,15 +319,17 @@ colour = 3
 type = 1
 tilename = "Yue Fei Square"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Opportunity knocks2" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(543, 53)
+position = Vector2(1118, 166)
 script = ExtResource("13_eictk")
 type = 2
 tilename = "Opportunity Knocks"
+metadata/_edit_lock_ = true
 
 [node name="Mulan rouge" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(607, 52)
+position = Vector2(1127, 225)
 script = ExtResource("11_kassn")
 propertycost = 220
 rent = 18
@@ -331,9 +337,10 @@ colour = 3
 type = 1
 tilename = "Mulan Rouge"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Han xin garderns" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(671, 54)
+position = Vector2(1121, 279)
 script = ExtResource("11_kassn")
 propertycost = 240
 rent = 20
@@ -341,9 +348,10 @@ colour = 3
 type = 1
 tilename = "Han Xin Garderns"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Falmer station" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(739, 50)
+position = Vector2(1124, 318)
 script = ExtResource("11_kassn")
 propertycost = 200
 rent = 25
@@ -351,9 +359,10 @@ colour = 9
 type = 1
 tilename = "Falmer Station"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Shatner close" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(806, 51)
+position = Vector2(1118, 379)
 script = ExtResource("11_kassn")
 propertycost = 260
 rent = 22
@@ -361,9 +370,10 @@ colour = 1
 type = 1
 tilename = "Shatner Close"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Picard avenue" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(867, 51)
+position = Vector2(1127, 430)
 script = ExtResource("11_kassn")
 propertycost = 260
 rent = 22
@@ -371,9 +381,10 @@ colour = 1
 type = 1
 tilename = "Picard Avenue"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Edison water" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(935, 53)
+position = Vector2(1122, 483)
 script = ExtResource("11_kassn")
 propertycost = 150
 rent = 4
@@ -381,9 +392,10 @@ colour = 5
 type = 1
 tilename = "Edison Water"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Crusher creek" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1002, 53)
+position = Vector2(1121, 534)
 script = ExtResource("11_kassn")
 propertycost = 280
 rent = 22
@@ -391,15 +403,17 @@ colour = 1
 type = 1
 tilename = "Crusher Creek"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Go to jail" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1099, 51)
+position = Vector2(1098, 610)
 script = ExtResource("16_857qe")
 type = 7
 tilename = "Go to Jail"
+metadata/_edit_lock_ = true
 
 [node name="Sirat Mews" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1118, 117)
+position = Vector2(996, 621)
 script = ExtResource("11_kassn")
 propertycost = 300
 rent = 26
@@ -407,9 +421,10 @@ colour = 7
 type = 1
 tilename = "Sirat Mews"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Ghengis Crescent" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1116, 169)
+position = Vector2(943, 615)
 script = ExtResource("11_kassn")
 propertycost = 300
 rent = 26
@@ -417,15 +432,17 @@ colour = 7
 type = 1
 tilename = "Ghengis Crescent"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Pot luck 3" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1120, 219)
+position = Vector2(875, 622)
 script = ExtResource("11_iwhwm")
 type = 3
 tilename = "Potluck"
+metadata/_edit_lock_ = true
 
 [node name="Ibis Close" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1115, 275)
+position = Vector2(809, 624)
 script = ExtResource("11_kassn")
 propertycost = 320
 rent = 28
@@ -433,9 +450,10 @@ colour = 7
 type = 1
 tilename = "Ibis Close "
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Portslade station" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1119, 322)
+position = Vector2(736, 629)
 script = ExtResource("11_kassn")
 propertycost = 200
 rent = 25
@@ -443,15 +461,17 @@ colour = 9
 type = 1
 tilename = "Portslade Station"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Opportunity knocks3" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1122, 375)
+position = Vector2(673, 634)
 script = ExtResource("13_eictk")
 type = 2
 tilename = "Opportunity Knocks"
+metadata/_edit_lock_ = true
 
 [node name="James Webb Way" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1124, 426)
+position = Vector2(611, 631)
 script = ExtResource("11_kassn")
 propertycost = 350
 rent = 35
@@ -459,15 +479,17 @@ colour = 10
 type = 1
 tilename = "James Webb Way"
 buyable = true
+metadata/_edit_lock_ = true
 
 [node name="Super tax" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1120, 478)
+position = Vector2(549, 621)
 script = ExtResource("12_8y2uq")
 type = 4
 tilename = "Super Tax"
+metadata/_edit_lock_ = true
 
 [node name="Turing heights" type="Marker2D" parent="Board_Tiles"]
-position = Vector2(1123, 527)
+position = Vector2(484, 633)
 script = ExtResource("11_kassn")
 propertycost = 400
 rent = 50
@@ -475,42 +497,41 @@ colour = 10
 type = 1
 tilename = "Turing Heights"
 buyable = true
-
-[node name="PropertyButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 212.0
-offset_right = 147.0
-offset_bottom = 268.0
-theme = ExtResource("7_r74ql")
-text = "Property
-"
+metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.561
 
-[node name="Banklbl" type="Label" parent="."]
+[node name="PropertyButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 8.0
-offset_right = 308.0
-offset_bottom = 31.0
+offset_left = 85.0
+offset_top = 478.0
+offset_right = 232.0
+offset_bottom = 534.0
+theme = ExtResource("7_r74ql")
+text = "Property
+"
+
+[node name="bank_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 52.0
+offset_right = 310.0
+offset_bottom = 76.0
 theme = ExtResource("7_r74ql")
 text = "Bank:"
 
-[node name="Player1Stats" type="Label" parent="."]
+[node name="player_money_lbl" type="Label" parent="."]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 55.0
-offset_right = 94.0
-offset_bottom = 130.0
+offset_left = 15.0
+offset_top = 93.0
+offset_right = 303.0
+offset_bottom = 198.0
 theme = ExtResource("7_r74ql")
-text = "Player 1
-Money:
-Properties:
+text = "
 "
 
-[node name="PlayerTurn" type="Label" parent="."]
+[node name="player_turn_label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
@@ -522,27 +543,67 @@ text = "Player *'s Turn
 
 [node name="End Turn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 339.0
-offset_right = 177.0
-offset_bottom = 370.0
+offset_left = 174.0
+offset_top = 574.0
+offset_right = 322.0
+offset_bottom = 638.0
 theme = ExtResource("7_r74ql")
 text = "END TURN
 "
 
 [node name="Turn Action" type="Button" parent="."]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 282.0
-offset_right = 152.0
-offset_bottom = 323.0
+offset_left = 85.0
+offset_top = 420.0
+offset_right = 229.0
+offset_bottom = 461.0
 theme = ExtResource("7_r74ql")
 text = "Turn Action
 "
 
+[node name="Houseicon" type="Sprite2D" parent="."]
+position = Vector2(50, 615)
+scale = Vector2(0.460265, 0.420354)
+texture = ExtResource("19_cegan")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 235.0
+offset_right = 298.0
+offset_bottom = 375.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("20_82xsv")
+
+[node name="property_lbl" type="Label" parent="ScrollContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 61.0
+offset_right = 241.0
+offset_bottom = 110.0
+text = "hii
+"
+
+[node name="OppoKnocksSprite" type="Sprite2D" parent="."]
+position = Vector2(565, 208)
+scale = Vector2(0.249091, 0.233933)
+texture = ExtResource("19_getpj")
+
+[node name="PotluckSprite" type="Sprite2D" parent="."]
+position = Vector2(939, 440)
+scale = Vector2(0.313542, 0.333854)
+texture = ExtResource("20_ryguw")
+
 [connection signal="pressed" from="DiceStuff/DiceButton" to="." method="_on_dice_button_pressed"]
 [connection signal="pressed" from="DiceStuff/RevealDice" to="." method="_on_reveal_dice_pressed"]
-[connection signal="pressed" from="PropertyButton" to="." method="_on_property_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="PropertyButton" to="." method="_on_property_button_pressed"]
 [connection signal="pressed" from="End Turn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="Turn Action" to="." method="_on_turn_action_pressed"]

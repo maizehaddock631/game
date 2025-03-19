@@ -1,4 +1,3 @@
-res://move_handler.tscn
-res://startmenu/Main menu/main_menu.tscn
-res://startmenu/New Game menu/new_game_menu.gd
-res://startmenu/Settings menu/settings_tab_container.tscn
+res://main.tscn
+res://control.gd
+res://player.gd

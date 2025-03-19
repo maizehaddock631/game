@@ -2,7 +2,7 @@ class_name Banker
 
 extends Node2D
 
-var balance : int = 50000
+@export var balance : int = 50000
 @export var properties = []
 
 func pay(amount : int, who : Player) -> void:

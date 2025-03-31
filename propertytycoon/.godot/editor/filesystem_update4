@@ -1,3 +1,7 @@
-res://main.tscn
 res://control.gd
 res://player.gd
+res://property_tile.gd
+res://opportunity_knocks.gd
+res://opportunity_knocks_card.gd
+res://Main menu/main_menu.tscn
+res://main.tscn

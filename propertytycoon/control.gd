@@ -13,6 +13,7 @@ var number_of_spaces : int
 @onready var player2: Player = $Player2
 var all_players = []
 var current_player = Player
+@onready var jail_choice: ConfirmationDialog = $"Jail choice"
 
 @onready var property_card_scene: PackedScene = preload("res://property_card.tscn")
 @onready var ok_card_scene: PackedScene = preload("res://opportunity_knocks.tscn")
@@ -59,7 +60,8 @@ func _ready() -> void:
 	player_turn_label.text = "it's " + all_players[current_turn].name + " turn"
 	
 	property_lbl.text = "Player 1 properties: " +str(player.properties) + "\nPlayer 2 properties: " +str(player2.properties)
-	
+	jail_choice.get_ok_button().connect("ok", _on_ok_pressed)
+	jail_choice.get_cancel_button().connect("no", _on_no_pressed)
 	start_turn()
 	print(number_of_spaces)
 	
@@ -71,7 +73,7 @@ func _process(delta):
 # Called when the roll button is pressed
 func _on_dice_button_pressed():
 	var num = all_players[current_turn].roll(dice, dice_2, game_spaces)
-	all_players[current_turn].move(30, game_spaces, timer)
+	all_players[current_turn].move(num, game_spaces, timer)
 	timer.start()
 	#player_turn(game_spaces[all_players[current_turn].current_position-1], current_player)
 	await turn_end
@@ -116,10 +118,14 @@ func player_turn(Tile, place):
 	if final_space.type == 7:
 		print("go to jail")
 		player.go_to_jail(game_spaces)
+		jail_choice.popup_centered()
 
 	#if (game_spaces[place-1]) == game_spaces[1] and firstround !=true
 		#add £200
-
+func _on_ok_pressed():
+	all_players[current_turn].stay_in_jail()
+func _on_no_pressed():
+	all_players[current_turn].pay_jail_fine(bank)
 func _landed_on_property(property: Property):
 	final_property = property
 	print("you landed on a property!")
@@ -161,6 +167,9 @@ func update_label():
 func start_turn():
 	var current_player = all_players[current_turn]
 	print("It's ", current_player.playerName, "'s turn!")
+	if current_player.injail == true:
+		jail_choice.popup_centered()
+		
 	
 func end_turn():
 	property_button.hide()

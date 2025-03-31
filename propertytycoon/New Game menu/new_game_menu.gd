@@ -20,8 +20,7 @@ func _ready() -> void:
 	set_process(false)
 	player_count_spinbox.min_value = 2
 	player_count_spinbox.max_value = 6
-	player_count_spinbox.value = num_players
-	create_player_name_inputs()
+	num_players = player_count_spinbox.value
 	var startGameButton = func on_start_game():
 		print("Starting game with settings:")
 		print("Players : ", num_players)
@@ -29,9 +28,7 @@ func _ready() -> void:
 		get_tree().change_scene_to_file("res://main.tscn")
 	
 	#Connect signals
-	player_count_spinbox.connect("value_changed", func on_player_count_changed(value: float):
-		num_players = int(value) #Making sure value passed is an integer
-		print("Players : ", num_players))
+		
 	game_version_optionButton.connect("item_selected", func on_game_version_changed(index: int):
 		game_version = "Full" if index == 0 else "Timed"
 		print("Game Version : ", game_version))
@@ -57,7 +54,10 @@ func create_player_name_inputs():
 		player_names_container.add_child(line_edit)
 		player_name_inputs.append(line_edit)
 	
-	
+func on_player_count_changed(value:float):
+	num_players = int(value) #Making sure value passed is an integer
+	print("Players : ", num_players)
+	create_player_name_inputs()
 	
 
 	

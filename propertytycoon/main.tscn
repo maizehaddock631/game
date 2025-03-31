@@ -533,10 +533,10 @@ text = "
 
 [node name="player_turn_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 8.0
-offset_right = 204.0
-offset_bottom = 34.0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 198.0
+offset_bottom = 54.0
 theme = ExtResource("7_r74ql")
 text = "Player *'s Turn
 "
@@ -601,9 +601,33 @@ position = Vector2(939, 440)
 scale = Vector2(0.313542, 0.333854)
 texture = ExtResource("20_ryguw")
 
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Labelmessage" type="Label" parent="CanvasLayer2"]
+offset_left = 736.0
+offset_top = 163.0
+offset_right = 776.0
+offset_bottom = 186.0
+
+[node name="Jail choice" type="ConfirmationDialog" parent="."]
+title = "Would you like to stay in jail, or pay a jail fine and leave?"
+position = Vector2i(0, 36)
+size = Vector2i(500, 100)
+ok_button_text = "Stay"
+dialog_text = "Would you like to stay in jail, or pay fine to leave?"
+cancel_button_text = "Pay Fine"
+
 [connection signal="pressed" from="DiceStuff/DiceButton" to="." method="_on_dice_button_pressed"]
 [connection signal="pressed" from="DiceStuff/RevealDice" to="." method="_on_reveal_dice_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="PropertyButton" to="." method="_on_property_button_pressed"]
 [connection signal="pressed" from="End Turn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="Turn Action" to="." method="_on_turn_action_pressed"]
+[connection signal="canceled" from="Jail choice" to="." method="_on_no_pressed"]
+[connection signal="confirmed" from="Jail choice" to="." method="_on_ok_pressed"]

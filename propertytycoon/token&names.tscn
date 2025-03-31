@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://oidq5fvlbot"]
+
+[ext_resource type="Script" uid="uid://c5kpk8y5s8bp0" path="res://tokens&names.gd" id="1_ta8t8"]
+[ext_resource type="PackedScene" uid="uid://b4mpmnfd1n8b" path="res://New Game menu/new_game_menu.tscn" id="2_ypfru"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 6.0
+offset_right = -2.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ta8t8")
+
+[node name="NewGame_menu" parent="." instance=ExtResource("2_ypfru")]
+visible = false
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_right = 1.0
+anchor_bottom = 1.002
+offset_left = -0.304
+offset_top = 3.0
+offset_bottom = -0.296082
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 60
+text = "Choose your names & tokens"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "NAME"

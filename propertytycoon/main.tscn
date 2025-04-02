@@ -26,7 +26,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_rgmk4")
-game_spaces = [NodePath("Board_Tiles/Go"), NodePath("Board_Tiles/The Old Creek"), NodePath("Board_Tiles/Pot luck"), NodePath("Board_Tiles/Gangster\'s Paradise"), NodePath("Board_Tiles/Income tax"), NodePath("Board_Tiles/Brighton station"), NodePath("Board_Tiles/The Angel\'s Delight"), NodePath("Board_Tiles/Opportunity knocks"), NodePath("Board_Tiles/Potter Avenue"), NodePath("Board_Tiles/Granger Drive"), NodePath("Board_Tiles/Just visiting jail"), NodePath("Board_Tiles/Sky walker drive"), NodePath("Board_Tiles/Telsa Power Co"), NodePath("Board_Tiles/Wookie hole"), NodePath("Board_Tiles/Rey lane"), NodePath("Board_Tiles/Hove station"), NodePath("Board_Tiles/Bishop drive"), NodePath("Board_Tiles/Potluck 2"), NodePath("Board_Tiles/Duhnam street"), NodePath("Board_Tiles/Broyles lane"), NodePath("Board_Tiles/Free parking"), NodePath("Board_Tiles/Yue fei square"), NodePath("Board_Tiles/Opportunity knocks2"), NodePath("Board_Tiles/Mulan rouge"), NodePath("Board_Tiles/Han xin garderns"), NodePath("Board_Tiles/Falmer station"), NodePath("Board_Tiles/Shatner close"), NodePath("Board_Tiles/Picard avenue"), NodePath("Board_Tiles/Edison water"), NodePath("Board_Tiles/Crusher creek"), NodePath("Board_Tiles/Go to jail"), NodePath("Board_Tiles/Sirat Mews"), NodePath("Board_Tiles/Ghengis Crescent"), NodePath("Board_Tiles/Pot luck 3"), NodePath("Board_Tiles/Ibis Close"), NodePath("Board_Tiles/Portslade station"), NodePath("Board_Tiles/Opportunity knocks3"), NodePath("Board_Tiles/James Webb Way"), NodePath("Board_Tiles/Super tax"), NodePath("Board_Tiles/Turing heights")]
+game_spaces = [NodePath("Board_Tiles/Go"), NodePath("Board_Tiles/The Old Creek"), NodePath("Board_Tiles/Pot luck"), NodePath("Board_Tiles/Gangster\'s Paradise"), NodePath("Board_Tiles/Income tax"), NodePath("Board_Tiles/Brighton station"), NodePath("Board_Tiles/The Angel\'s Delight"), NodePath("Board_Tiles/Opportunity knocks"), NodePath("Board_Tiles/Potter Avenue"), NodePath("Board_Tiles/Granger Drive"), NodePath("Board_Tiles/Just visiting jail"), NodePath("Board_Tiles/Sky walker drive"), NodePath("Board_Tiles/Telsa Power Co"), NodePath("Board_Tiles/Wookie hole"), NodePath("Board_Tiles/Rey lane"), NodePath("Board_Tiles/Hove station"), NodePath("Board_Tiles/Bishop drive"), NodePath("Board_Tiles/Potluck 2"), NodePath("Board_Tiles/Duhnam street"), NodePath("Board_Tiles/Broyles lane"), NodePath("Board_Tiles/Free parking"), NodePath("Board_Tiles/Yue fei square"), NodePath("Board_Tiles/Opportunity knocks2"), NodePath("Board_Tiles/Mulan rouge"), NodePath("Board_Tiles/Han xin gardens"), NodePath("Board_Tiles/Falmer station"), NodePath("Board_Tiles/Shatner close"), NodePath("Board_Tiles/Picard avenue"), NodePath("Board_Tiles/Edison water"), NodePath("Board_Tiles/Crusher creek"), NodePath("Board_Tiles/Go to jail"), NodePath("Board_Tiles/Sirat Mews"), NodePath("Board_Tiles/Ghengis Crescent"), NodePath("Board_Tiles/Pot luck 3"), NodePath("Board_Tiles/Ibis Close"), NodePath("Board_Tiles/Portslade station"), NodePath("Board_Tiles/Opportunity knocks3"), NodePath("Board_Tiles/James Webb Way"), NodePath("Board_Tiles/Super tax"), NodePath("Board_Tiles/Turing heights")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -97,7 +97,6 @@ position = Vector2(363, 603)
 scale = Vector2(0.0500518, 0.0485837)
 texture = ExtResource("11_ryguw")
 playerName = "Milly"
-properties = []
 
 [node name="Board_Tiles" type="Node" parent="."]
 
@@ -142,6 +141,7 @@ metadata/_edit_lock_ = true
 [node name="Income tax" type="Marker2D" parent="Board_Tiles"]
 position = Vector2(357, 382)
 script = ExtResource("12_8y2uq")
+tax = 200
 type = 4
 tilename = "Income Tax"
 metadata/_edit_lock_ = true
@@ -339,7 +339,7 @@ tilename = "Mulan Rouge"
 buyable = true
 metadata/_edit_lock_ = true
 
-[node name="Han xin garderns" type="Marker2D" parent="Board_Tiles"]
+[node name="Han xin gardens" type="Marker2D" parent="Board_Tiles"]
 position = Vector2(1121, 279)
 script = ExtResource("11_kassn")
 propertycost = 240
@@ -484,6 +484,7 @@ metadata/_edit_lock_ = true
 [node name="Super tax" type="Marker2D" parent="Board_Tiles"]
 position = Vector2(549, 621)
 script = ExtResource("12_8y2uq")
+tax = 100
 type = 4
 tilename = "Super Tax"
 metadata/_edit_lock_ = true
@@ -622,6 +623,11 @@ size = Vector2i(500, 100)
 ok_button_text = "Stay"
 dialog_text = "Would you like to stay in jail, or pay fine to leave?"
 cancel_button_text = "Pay Fine"
+
+[node name="House choice" type="ConfirmationDialog" parent="."]
+title = "Would you like to buy a house on this property?"
+ok_button_text = "Yes"
+cancel_button_text = "No"
 
 [connection signal="pressed" from="DiceStuff/DiceButton" to="." method="_on_dice_button_pressed"]
 [connection signal="pressed" from="DiceStuff/RevealDice" to="." method="_on_reveal_dice_pressed"]

@@ -73,7 +73,7 @@ func _process(delta):
 # Called when the roll button is pressed
 func _on_dice_button_pressed():
 	var num = all_players[current_turn].roll(dice, dice_2, game_spaces)
-	all_players[current_turn].move(num, game_spaces, timer)
+	all_players[current_turn].move(13, game_spaces, timer)
 	timer.start()
 	#player_turn(game_spaces[all_players[current_turn].current_position-1], current_player)
 	await turn_end
@@ -108,6 +108,7 @@ func player_turn(Tile, place):
 
 	if final_space.type == 4:
 		print("tax")
+		## make player pay tax
 
 	if final_space.type == 5:
 		print("visiting jail")
@@ -117,7 +118,7 @@ func player_turn(Tile, place):
 
 	if final_space.type == 7:
 		print("go to jail")
-		player.go_to_jail(game_spaces)
+		all_players[current_turn].go_to_jail(game_spaces)
 		jail_choice.popup_centered()
 
 	#if (game_spaces[place-1]) == game_spaces[1] and firstround !=true
@@ -189,3 +190,7 @@ func _on_end_turn_pressed() -> void:
 
 func _on_turn_action_pressed() -> void:
 	player_turn(game_spaces[all_players[current_turn].current_position-1], current_player)
+
+
+func _on_mouse_entered() -> void:
+	pass # Replace with function body.

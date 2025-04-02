@@ -7,10 +7,12 @@ class_name Player
 @export var isAI : bool
 @onready var labelmessage: Label = $"../CanvasLayer2/Labelmessage"
 @onready var jail_choice: ConfirmationDialog = $"../Jail choice"
+@onready var house_choice: ConfirmationDialog = $"../House choice"
+
 
 var token : Token
 @export var playerName : String
-@export var properties = [Property]
+@export var properties = []
 var current_position: int = 0
 var jail_turns: int
 var has_completed_loop: bool 
@@ -121,7 +123,11 @@ func buy_property(property: Property, bank: Banker) -> void:
 		bank.balance += property.propertycost
 		print("You have bought ", property.tilename)
 		show_message(self.playerName + " has bought " + property.tilename)
-	
+	var colour_group = property.get_colour_group(property.colour)
+	if owns_all_property_colours(colour_group):
+		show_message(self.playerName + " owns all properties in this colour group. They can now start buying houses!")
+		house_choice.popup()
+		house_choice.get_ok_button().connect("pressed", Callable(self, "buy_house").bind(property, bank))
 	print(properties)
 
 func sell_property(property: Property, bank: Banker) -> void:
@@ -191,35 +197,41 @@ func stay_in_jail():
 		show_message(self.playerName + " no longer has to stay in jail. They're free!")
 		self.injail = false
 
-#func buy_house(property: Property, bank:Banker) :
-	## Check if property is owned by the player
-	#if property.propertyowner != self:
-		#print("You don't own this property!")
-		#return
-#
-	## Ensure the player owns all properties in the color group
-	#var color_group = colour_sets.get(property.colour, [])
-	#if not owns_all_property_colours(color_group):
-		#print("You need to own all properties in the", property.colour, "group to build a house.")
-		#return
-#
-	## Check if the player has enough funds
-	#var house_cost = 100  # Example house price; adjust as needed
-	#if self.balance < house_cost:
-		#print("Not enough funds to buy a house!")
-		#return
-#
-	## Add the house
-	#property.numofhouses += 1
-	#self.balance -= house_cost
-	#bank.balance += house_cost
-	#print("House added to", property.propertyname, ". Total houses:", property.numofhouses)
+func buy_house(property: Property, bank:Banker) :
+	var house_cost
+	if property.colour in [property.WhichColour.BROWN, property.WhichColour.BLUE]:
+		house_cost = 50
+	elif property.colour in [property.WhichColour.PURPLE, property.WhichColour.ORANGE]:
+		house_cost = 100
+	elif property.colour in [property.WhichColour.RED, property.WhichColour.YELLOW]:
+		house_cost = 150
+	elif property.colour in [property.WhichColour.GREEN, property.WhichColour.DEEPBLUE]:
+		house_cost = 200
+	if self.balance < house_cost:
+		print("Not enough funds to buy a house!")
+		show_message(self.playerName + " doesn't have enough money to buy a house!")
+	else:
+		var house_token = Sprite2D.new()
+		house_token.texture = preload("res://gameAssets/house token.webp")
+		#house_token.scale.x = 0.033
+		#house_token.scale.y = 0.028
+		property.add_child(house_token)
+		var tween = create_tween()
+		tween.tween_property(house_token, "position", position, 1)
+		house_token.name = "House"
+		#house_token.mouse_entered.connect(property.show_house_count) 
+		property.numofhouses += 1
+		self.balance -= house_cost
+		bank.balance += house_cost
+		print("House added to", property.propertyname, ". Total houses:", property.numofhouses)
+		#show_message("House added to " +  property.propertyname + ". Total houses: " + str(property.numofhouses))
 
 func owns_all_property_colours(colours:Array) -> bool:
 	for property in colours:
 		if property not in self.properties:
 			return false
 	return true
+	
 
 func show_message(message_label: String, duration: float = 3.0):
 	labelmessage.set_text(message_label)

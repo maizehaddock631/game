@@ -103,3 +103,20 @@ func test_jailfine():
 	assert_eq(bank.balance, 50050)
 	assert_eq(player.injail, false)
 	assert_eq(player.jail_turns, 0)
+
+func test_buyhouse():
+	var player = Player.new()
+	var bank = Banker.new()
+	var property1 = Property.new()
+	var property2 = Property.new()
+	property1.colour = Property.WhichColour.BROWN
+	property2.colour = Property.WhichColour.BROWN
+	player.properties = [property1, property2]
+	
+	player.buy_house(property1, bank)
+	
+	assert_eq(player.balance, 1450)
+	assert_eq(bank.balance, 50050)
+	assert_eq(player.properties.size(), 2)
+	assert_eq(property1.numofhouses, 1)
+	

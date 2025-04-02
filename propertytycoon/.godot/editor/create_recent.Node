@@ -1,8 +1,9 @@
+Label
+Sprite2D
 ConfirmationDialog
 ScrollContainer
 VBoxContainer
 VScrollBar
-Label
 LineEdit
 HBoxContainer
 HSeparator
@@ -11,4 +12,3 @@ Node2D
 CanvasLayer
 TextureRect
 HScrollBar
-Button

@@ -1,7 +1,9 @@
+res://main.tscn
 res://control.gd
 res://player.gd
-res://property_tile.gd
-res://opportunity_knocks.gd
-res://opportunity_knocks_card.gd
 res://Main menu/main_menu.tscn
-res://main.tscn
+res://property_tile.gd
+res://tests/testrunner.tscn
+res://tax.gd
+res://tests/test_player.gd
+res://token&names.tscn

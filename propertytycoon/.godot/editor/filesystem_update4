@@ -1,9 +1,0 @@
-res://main.tscn
-res://control.gd
-res://player.gd
-res://Main menu/main_menu.tscn
-res://property_tile.gd
-res://tests/testrunner.tscn
-res://tax.gd
-res://tests/test_player.gd
-res://token&names.tscn

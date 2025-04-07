@@ -15,6 +15,7 @@ var player_data = []
 var num_players = 2
 var game_version = 'Full'
 var player_name_inputs =[]
+var stored_player_names = []
 
 func _ready() -> void:
 	#Setting up spinBox linits
@@ -22,7 +23,7 @@ func _ready() -> void:
 	player_count_spinbox.min_value = 2
 	player_count_spinbox.max_value = 6
 	num_players = player_count_spinbox.value
-	#create_player_name_inputs()
+	create_player_name_inputs()
 	
 	
 	#print("Starting game with settings:")
@@ -56,7 +57,9 @@ func create_player_name_inputs():
 		line_edit.placeholder_text = "Player " + str(i + 1) + "'s Name"
 		player_names_container.add_child(line_edit)
 		player_name_inputs.append(line_edit)
-		print(player_name_inputs[i])
+		stored_player_names.append("")
+		print(stored_player_names[i])
+		line_edit.connect("text_changed", self._on_line_edit_text_changed.bind(i))
 	
 
 
@@ -65,14 +68,16 @@ func _on_start_game_pressed() -> void:
 	print("Players : ", num_players)
 	print("Game Version : ", game_version)
 	
-	var player_data = []
 	for i in range(num_players):
-		var player_name = player_name_inputs[i].text.strip_edges()
+		var player_name = stored_player_names[i]
 		if player_name == "":
 			player_name = "Player " + str(i + 1)
 			player_data.append({
 				"name": player_name
 			})
+		player_data.append({
+			"name": player_name
+		})  # Add player data for all players
 	print("NewGameMenu - Player Data:", player_data)
 	var game_scene = load("res://main.tscn").instantiate()
 	game_scene.player_data = player_data
@@ -88,3 +93,18 @@ func _on_player_count_changed(value: float) -> void:
 	num_players = int(value) #Making sure value passed is an integer
 	print("Players : ", num_players)
 	create_player_name_inputs()
+	
+#func _on_line_edit_text_changed(new_text, player_index):
+	#stored_player_names
+	#print("Player", player_index + 1, "typed:", new_text)
+	## You could store the names in an array here as they are typed
+	##player_name_inputs[player_index].text = new_text
+	
+func _on_line_edit_text_changed(new_text, player_index):
+	print("SIGNAL: Player", player_index + 1, "typed:", new_text)
+	if player_index >= 0 and player_index < stored_player_names.size():
+		stored_player_names[player_index] = new_text
+		print("UPDATE: stored_player_names[" + str(player_index) + "] =", stored_player_names[player_index])
+		print("FULL stored_player_names:", stored_player_names)
+	else:
+		printerr("ERROR: Invalid player_index in _on_line_edit_text_changed:", player_index)

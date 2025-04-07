@@ -6,7 +6,7 @@ class_name Player
 @export var injail : bool
 @export var isAI : bool
 var token : Token
-@onready var labelmessage: Label = $CanvasLayer2/Labelmessage
+@onready var labelmessage: Label = $"../CanvasLayer2/Labelmessage"
 @onready var jail_choice: ConfirmationDialog = $"../Jail Choice"
 @onready var house_choice: ConfirmationDialog = $"../House Choice"
 @export var playerName : String
@@ -22,7 +22,7 @@ var num : int
 #var propertynames : String
 
 func _ready() -> void:
-	has_completed_loop = true
+	has_completed_loop = false
 
 func pay(amount: int, recipient: Node) -> void:
 	if recipient is Banker:
@@ -231,17 +231,18 @@ func owns_all_property_colours(colours:Array) -> bool:
 	return true
 
 func pay_rent(property: Property) -> void:
-	var owner = property.propertyowner
+	var propertyOwner = property.propertyowner
 	var rent = property.rent
-	if owner is Banker:
-		print("This property is owned by the bank. No rent is needed.")
-	elif owner == self:
-		print("You landed on your own property. No rent required.")
-	elif rent> self.balance:
-		is_bankrupt= true
+	#if propertyOwner is Banker:
+		#print("This property is owned by the bank. No rent is needed.")
+	#elif owner == self:
+		#print("You landed on your own property. No rent required.")
+	if propertyOwner != self and propertyOwner is Player:
+		if rent> self.balance:
+			is_bankrupt= true
 		#show_message(self.playerName + " has gone bankrupt!")
-	else:
-		self.pay(rent, owner)
+		else:
+			self.pay(rent, propertyOwner)
 	
 func update_property():
 	pass
@@ -261,9 +262,8 @@ func update_property():
 	#return propertyNames
 	
 func show_message(message_label: String, duration: float = 3.0):
-	#labelmessage.set_text(message_label)
-	#labelmessage.show()
-	#await get_tree().create_timer(duration).timeout
-	#labelmessage.hide()
-	pass
+	labelmessage.set_text(message_label)
+	labelmessage.show()
+	await get_tree().create_timer(duration).timeout
+	labelmessage.hide()
 	

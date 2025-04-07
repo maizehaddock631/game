@@ -58,11 +58,13 @@ func _ready() -> void:
 	
 	for i in range(player_data.size()):
 		var new_player = preload("res://player.tscn").instantiate() # Assuming your Player scene is "player.tscn"
-		new_player.playerName = player_data[i].name
+		new_player.playerName = player_data[i].get("name")
 		# You might want to set other initial properties of the player here,
 		# like their starting position, initial balance, etc.
 		new_player.scale.x = 0.25
 		new_player.scale.y = 0.25
+		new_player.position.x = 390
+		new_player.position.y = 620
 		add_child(new_player)
 		all_players.append(new_player)
 	
@@ -101,7 +103,7 @@ func _on_reveal_dice_pressed():
 
 # checks what type of tile the tile and calls the appropriate func
 func player_turn(Tile, place):
-	player_money_lbl.text =  all_players[current_turn].name + " " + str(all_players[current_turn].balance) 
+	player_money_lbl.text =  all_players[current_turn].name + "'s balance: " + str(all_players[current_turn].balance) 
 	final_space = Tile
 	print(final_space)
 	print(Tile.WhichType)
@@ -161,7 +163,7 @@ func _on_property_button_pressed() -> void:
 	
 func card_bought(property : Property):
 	all_players[current_turn].buy_property(property, bank)
-	#update_label()
+	update_label()
 	#update_property_label()
 	
 func _landed_on_oppo_knocks(Player):
@@ -201,10 +203,10 @@ func _landed_on_tax(Player, Tile):
 	update_label()
 	
 func update_label():
-	player_money_lbl.text = all_players[current_turn].playerName + " " + str(all_players[current_turn].balance) 
+	player_money_lbl.text = all_players[current_turn].playerName + "'s balance: " + str(all_players[current_turn].balance) 
 	bank_label.text = "Bank: " + str(bank.balance)
-	player_turn_label.text = "it's " + all_players[current_turn].playerName + " turn"
-	property_lbl.text = all_players[current_turn].playerName + " properties: " +str(all_players[current_turn].properties)
+	player_turn_label.text = "it's " + all_players[current_turn].playerName + "'s turn"
+	property_lbl.text = all_players[current_turn].playerName + "'s properties: " +str(all_players[current_turn].properties)
 
 
 #func update_property_label():

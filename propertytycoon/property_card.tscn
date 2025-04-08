@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7k4wjn3hrir4"]
+
+[ext_resource type="Script" uid="uid://cf5vpqnbdqhgd" path="res://property_card.gd" id="1_o78vb"]
+[ext_resource type="Texture2D" uid="uid://417x86cg62u0" path="res://thumbnail_special tile.png" id="2_y4p7u"]
+[ext_resource type="Texture2D" uid="uid://da21hr6rmx1i2" path="res://randomcolour.png" id="3_fau1o"]
+[ext_resource type="FontFile" uid="uid://bjmijbducrgmq" path="res://SpaceMono-Bold.ttf" id="4_ifpov"]
+
+[node name="PropertyCard" type="Node2D"]
+position = Vector2(1, -2)
+script = ExtResource("1_o78vb")
+
+[node name="BaseCardSprite" type="Sprite2D" parent="."]
+position = Vector2(5, -63)
+scale = Vector2(0.962438, 0.59233)
+texture = ExtResource("2_y4p7u")
+
+[node name="PropertyDisplay" type="Node2D" parent="."]
+
+[node name="PropertyColour" type="Sprite2D" parent="PropertyDisplay"]
+position = Vector2(2, -95)
+scale = Vector2(0.6325, 0.5725)
+texture = ExtResource("3_fau1o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PropertyDisplay"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -108.0
+offset_right = 97.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PropertyDisplay/HBoxContainer"]
+layout_mode = 2
+
+[node name="PropertyLabel" type="Label" parent="PropertyDisplay/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.43612, 0.530014, 0.749511, 1)
+theme_override_fonts/font = ExtResource("4_ifpov")
+text = "Property Name"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PropertyCost" type="Label" parent="PropertyDisplay/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.435294, 0.529412, 0.74902, 1)
+theme_override_fonts/font = ExtResource("4_ifpov")
+text = "Cost"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BuyButton" type="Button" parent="PropertyDisplay/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Close
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="PropertyDisplay/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]

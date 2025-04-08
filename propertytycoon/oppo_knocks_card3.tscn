@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cokfv0alq008k"]
+
+[ext_resource type="PackedScene" uid="uid://ct74nnhbfhyi0" path="res://opportunity_knocks.tscn" id="1_btxd3"]
+
+[node name="Oppo Knocks Card" instance=ExtResource("1_btxd3")]
+which_card = 3

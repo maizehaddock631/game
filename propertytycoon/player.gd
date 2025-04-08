@@ -128,12 +128,14 @@ func move(spaces: int, game_spaces: Array, timer: Timer):
 
 func buy_property(property: Property, bank: Banker) -> void:
 	if self.balance < property.propertycost:
-		
 		print("Sorry! You don't have enough funds to purchase ", property.tilename)
+		show_message("Sorry! You don't have enough funds to purchase " + property.tilename)
 	if not self.has_completed_loop:
 		print("You have to have completed a loop first!")
+		show_message("You have to have completed a loop first!")
 	if property.propertyowner is Player:
 		print("Sorry! Someone already owns ", property.tilename)
+		show_message("Sorry! Someone already owns " + property.tilename)
 	
 	var colour_group = property.get_colour_group(property.colour)
 	if owns_all_property_colours(colour_group):
@@ -241,10 +243,9 @@ func buy_house(property: Property, bank:Banker) :
 		house_token.name = "House"
 		#house_token.mouse_entered.connect(property.show_house_count) 
 		property.numofhouses += 1
-		self.balance -= house_cost
-		bank.balance += house_cost
+		self.pay(house_cost, bank)
 		print("House added to", property.propertyname, ". Total houses:", property.numofhouses)
-		#show_message("House added to " +  property.propertyname + ". Total houses: " + str(property.numofhouses))
+		show_message("House added to " +  property.propertyname + ". Total houses: " + str(property.numofhouses) + "Paid: " + str(house_cost))
 
 func owns_all_property_colours(colours:Array) -> bool:
 	for property in colours:
@@ -262,7 +263,7 @@ func pay_rent(property: Property) -> void:
 	if propertyOwner != self and propertyOwner is Player:
 		if rent> self.balance:
 			is_bankrupt= true
-		#show_message(self.playerName + " has gone bankrupt!")
+			show_message(self.playerName + " has gone bankrupt!")
 		else:
 			self.pay(rent, propertyOwner)
 	

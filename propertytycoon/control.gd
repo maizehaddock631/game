@@ -66,10 +66,15 @@ func _ready() -> void:
 	for i in range(player_data.size()):
 		var new_player = preload("res://player.tscn").instantiate() # Assuming your Player scene is "player.tscn"
 		new_player.playerName = player_data[i].get("name")
+		new_player.texture = player_data[i].get("token")
 		# You might want to set other initial properties of the player here,
 		# like their starting position, initial balance, etc.
-		new_player.scale.x = 0.25
-		new_player.scale.y = 0.25
+		if new_player.texture == preload("res://gameAssets/token assets/Boot.PNG"):
+			new_player.scale.x = 0.025
+			new_player.scale.y = 0.025
+		else:
+			new_player.scale.x = 0.5
+			new_player.scale.y = 0.5
 		new_player.position.x = 390
 		new_player.position.y = 620
 		add_child(new_player)
@@ -98,7 +103,7 @@ func _process(delta):
 # Called when the roll button is pressed
 func _on_dice_button_pressed():
 	var num = all_players[current_turn].roll(dice, dice_2, game_spaces)
-	all_players[current_turn].move(7, game_spaces, timer)
+	all_players[current_turn].move(num, game_spaces, timer)
 	turn_action.show()
 	timer.start()
 	#player_turn(game_spaces[all_players[current_turn].current_position-1], current_player)
@@ -275,11 +280,11 @@ func _landed_on_tax(Player, Tile):
 	if Tile.tilename == "Super Tax":
 		Player.balance -= 100
 		bank.freeParking += 100
-		Player.show_message(self.playerName + " has to pay £100 in Super Tax!")
+		Player.show_message(Player.playerName + " has to pay £100 in Super Tax!")
 	if Tile.tilename == "Income Tax":
 		Player.balance -= 200
 		bank.freeParking += 200
-		Player.show_message(self.playerName + " has to pay £200 in Income Tax!")
+		Player.show_message(Player.playerName + " has to pay £200 in Income Tax!")
 		
 	print(bank.freeParking)
 	

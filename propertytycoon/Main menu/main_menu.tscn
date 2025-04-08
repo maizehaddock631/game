@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwju72r4qbhgb" path="res://main_menu.gd" id="1_a2vl1"]
 [ext_resource type="Texture2D" uid="uid://c6qvqv15rosax" path="res://images/IMG_0123.jpeg" id="2_1jbbm"]
-[ext_resource type="PackedScene" uid="uid://bwhufcth2ph3g" path="res://Settings menu/settings_menu.tscn" id="3_8mx5x"]
+[ext_resource type="PackedScene" uid="uid://bwhufcth2ph3g" path="res://addons/gut/Settings menu/settings_menu.tscn" id="3_8mx5x"]
 [ext_resource type="AudioStream" uid="uid://bwj0g5t74bwu3" path="res://Music/786269__sergequadrado__indie-game-soundtrack.mp3" id="4_ow0ps"]
 [ext_resource type="PackedScene" uid="uid://b4mpmnfd1n8b" path="res://New Game menu/new_game_menu.tscn" id="5_3qbsj"]
 

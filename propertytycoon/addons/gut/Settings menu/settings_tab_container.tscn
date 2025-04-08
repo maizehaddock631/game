@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://brqlep2a8w14q"]
 
-[ext_resource type="PackedScene" uid="uid://bmw7ktne2yibu" path="res://Settings menu/audio_slider_settings.tscn" id="1_t20ad"]
+[ext_resource type="PackedScene" uid="uid://bmw7ktne2yibu" path="res://addons/gut/Settings menu/audio_slider_settings.tscn" id="1_t20ad"]
 
 [node name="Settings_Tab_Container" type="Control"]
 layout_mode = 3

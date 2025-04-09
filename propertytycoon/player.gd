@@ -235,11 +235,11 @@ func buy_house(property: Property, bank:Banker) :
 	else:
 		var house_token = Sprite2D.new()
 		house_token.texture = preload("res://gameAssets/house token.webp")
-		#house_token.scale.x = 0.033
-		#house_token.scale.y = 0.028
+		house_token.scale.x = 0.1
+		house_token.scale.y = 0.1
 		property.add_child(house_token)
-		var tween = create_tween()
-		tween.tween_property(house_token, "position", position, 1)
+		#var tween = create_tween()
+		#tween.tween_property(house_token, "position", position, 1)
 		house_token.name = "House"
 		#house_token.mouse_entered.connect(property.show_house_count) 
 		property.numofhouses += 1

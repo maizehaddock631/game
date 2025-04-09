@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c38mv1ehy76yq"]
+[gd_scene load_steps=36 format=3 uid="uid://c38mv1ehy76yq"]
 
 [ext_resource type="Script" uid="uid://7bpxuiyel11i" path="res://control.gd" id="1_rgmk4"]
 [ext_resource type="PackedScene" uid="uid://qm1dcj13gvqi" path="res://oppo_knocks_card2.tscn" id="2_074og"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://hflog4ipg8xy" path="res://oppo_knocks_card4.tscn" id="5_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://ixfqakbbldlx" path="res://oppo_knocks_card5.tscn" id="6_0rl1p"]
 [ext_resource type="PackedScene" uid="uid://34p7uxxjmmru" path="res://oppo_knocks_card6.tscn" id="7_ok6jj"]
-[ext_resource type="Theme" uid="uid://cv8l8a5rgl4yk" path="res://Default.tres" id="7_r74ql"]
 [ext_resource type="PackedScene" uid="uid://dcfa8y7378w3r" path="res://oppo_knocks_card7.tscn" id="8_facbu"]
 [ext_resource type="PackedScene" uid="uid://b2ae0kl1ftfgs" path="res://oppo_knocks_card8.tscn" id="9_b1qrp"]
 [ext_resource type="Texture2D" uid="uid://degtvhfsot4on" path="res://boardfinalish.png" id="9_getpj"]
@@ -30,9 +29,26 @@
 [ext_resource type="PackedScene" uid="uid://cguvnol3k04en" path="res://oppo_knocks_card15.tscn" id="16_0n3wm"]
 [ext_resource type="Script" uid="uid://diu02lh54boqf" path="res://go_to_jail.gd" id="16_857qe"]
 [ext_resource type="PackedScene" uid="uid://cs5ibtbsh58e5" path="res://oppo_knocks_card16.tscn" id="17_qnost"]
-[ext_resource type="Texture2D" uid="uid://b5c5v6rwj7lin" path="res://houseicon.png" id="19_cegan"]
 [ext_resource type="Texture2D" uid="uid://d0ibdsuc4gah2" path="res://IMG_9656.webp" id="19_getpj"]
 [ext_resource type="Texture2D" uid="uid://csxtqrxt2sss3" path="res://1c9a344d-4886-4b7c-9dac-ec24283c8518.jpg" id="20_ryguw"]
+[ext_resource type="Theme" uid="uid://5mbaoxawpglr" path="res://Settings menu/panel.tres" id="21_jq2sk"]
+
+[sub_resource type="Theme" id="Theme_4k2k6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rl1p"]
+bg_color = Color(0.556807, 0.578779, 0.808445, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_htxhm"]
+load_path = "res://.godot/imported/IMG_0606 (002).jpeg-1674300e4cef8bd28192a4f3a5d3bf83.ctex"
 
 [node name="GameManager" type="Control" node_paths=PackedStringArray("game_spaces")]
 layout_mode = 3
@@ -65,6 +81,8 @@ expand_mode = 1
 layout_mode = 0
 offset_right = 328.0
 offset_bottom = 652.0
+theme = SubResource("Theme_4k2k6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0rl1p")
 
 [node name="Panel" type="Panel" parent="PanelContainer"]
 visible = false
@@ -81,7 +99,7 @@ offset_left = 650.0
 offset_top = 336.0
 offset_right = 846.0
 offset_bottom = 399.0
-theme = ExtResource("7_r74ql")
+theme = ExtResource("21_jq2sk")
 text = "Press to roll"
 
 [node name="Dice2" parent="DiceStuff" instance=ExtResource("4_hfuxw")]
@@ -93,7 +111,7 @@ offset_left = 84.0
 offset_top = 419.0
 offset_right = 229.0
 offset_bottom = 461.0
-theme = ExtResource("7_r74ql")
+theme = ExtResource("21_jq2sk")
 text = "Dice"
 
 [node name="Boardfinalish" type="Sprite2D" parent="."]
@@ -511,7 +529,7 @@ offset_left = 85.0
 offset_top = 478.0
 offset_right = 232.0
 offset_bottom = 534.0
-theme = ExtResource("7_r74ql")
+theme = ExtResource("21_jq2sk")
 text = "Buy Property
 "
 metadata/_edit_lock_ = true
@@ -522,7 +540,9 @@ offset_left = 194.0
 offset_top = 52.0
 offset_right = 310.0
 offset_bottom = 76.0
-theme = ExtResource("7_r74ql")
+theme = ExtResource("21_jq2sk")
+theme_override_colors/font_color = Color(0.0144607, 0.0990932, 0.245382, 1)
+theme_override_font_sizes/font_size = 17
 text = "Bank:"
 
 [node name="player_money_lbl" type="Label" parent="."]
@@ -531,7 +551,7 @@ offset_left = 15.0
 offset_top = 93.0
 offset_right = 303.0
 offset_bottom = 198.0
-theme = ExtResource("7_r74ql")
+theme = ExtResource("21_jq2sk")
 text = "
 "
 
@@ -541,7 +561,9 @@ offset_left = 10.0
 offset_top = 8.0
 offset_right = 204.0
 offset_bottom = 34.0
-theme = ExtResource("7_r74ql")
+theme = ExtResource("21_jq2sk")
+theme_override_colors/font_color = Color(0.0122679, 0.0960651, 0.21919, 1)
+theme_override_font_sizes/font_size = 20
 text = "Player *'s Turn
 "
 
@@ -551,7 +573,8 @@ offset_left = 174.0
 offset_top = 574.0
 offset_right = 322.0
 offset_bottom = 638.0
-theme = ExtResource("7_r74ql")
+theme = ExtResource("21_jq2sk")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "END TURN
 "
 
@@ -561,7 +584,9 @@ offset_left = 85.0
 offset_top = 420.0
 offset_right = 229.0
 offset_bottom = 461.0
-theme = ExtResource("7_r74ql")
+theme = ExtResource("21_jq2sk")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Turn Action
 "
 
@@ -611,8 +636,8 @@ layout_mode = 0
 offset_left = 16.0
 offset_top = 582.0
 offset_right = 88.0
-offset_bottom = 634.0
-texture_normal = ExtResource("19_cegan")
+offset_bottom = 642.0
+texture_normal = SubResource("CompressedTexture2D_htxhm")
 ignore_texture_size = true
 stretch_mode = 0
 

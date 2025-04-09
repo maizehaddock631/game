@@ -1,17 +1,56 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvmpx4mo50jjx"]
+[gd_scene load_steps=11 format=3 uid="uid://cji3gutvocllb"]
 
 [ext_resource type="Script" uid="uid://dwju72r4qbhgb" path="res://main_menu.gd" id="1_a2vl1"]
 [ext_resource type="Texture2D" uid="uid://c6qvqv15rosax" path="res://images/IMG_0123.jpeg" id="2_1jbbm"]
-[ext_resource type="PackedScene" uid="uid://bwhufcth2ph3g" path="res://addons/gut/Settings menu/settings_menu.tscn" id="3_8mx5x"]
+[ext_resource type="PackedScene" uid="uid://bwhufcth2ph3g" path="res://Settings menu/settings_menu.tscn" id="3_8mx5x"]
+[ext_resource type="FontFile" uid="uid://c37abl8lk8k6b" path="res://textFont/SPACEBOY.TTF" id="3_is1af"]
 [ext_resource type="AudioStream" uid="uid://bwj0g5t74bwu3" path="res://Music/786269__sergequadrado__indie-game-soundtrack.mp3" id="4_ow0ps"]
 [ext_resource type="PackedScene" uid="uid://b4mpmnfd1n8b" path="res://New Game menu/new_game_menu.tscn" id="5_3qbsj"]
 
-[sub_resource type="SystemFont" id="SystemFont_hnpjw"]
-font_names = PackedStringArray("Monospace")
-font_weight = 999
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0qd8"]
+bg_color = Color(0.653583, 0.547053, 0.764079, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.994755, 0.862581, 0.820161, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 15.0
+expand_margin_top = 7.0
+expand_margin_right = 15.0
+expand_margin_bottom = 7.0
+shadow_color = Color(0.84953, 0.846044, 0.937868, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_is1af"]
+bg_color = Color(0.577959, 0.279295, 0.48679, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8959, 0.771212, 0.708681, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 15.0
+expand_margin_top = 7.0
+expand_margin_right = 15.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="Theme" id="Theme_is1af"]
+Button/styles/hover = SubResource("StyleBoxFlat_m0qd8")
+Button/styles/normal = SubResource("StyleBoxFlat_m0qd8")
+Button/styles/pressed = SubResource("StyleBoxFlat_is1af")
 
 [sub_resource type="SystemFont" id="SystemFont_f5prl"]
-font_names = PackedStringArray("Impact")
+font_names = PackedStringArray("Monospace")
+font_weight = 999
+font_stretch = 200
 
 [node name="Main_menu" type="Control"]
 layout_mode = 3
@@ -20,6 +59,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_is1af")
 script = ExtResource("1_a2vl1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -66,8 +106,8 @@ offset_bottom = -125.0
 theme_override_colors/font_color = Color(0.733333, 0.196078, 0.615686, 0.890196)
 theme_override_colors/font_outline_color = Color(0.34106, 0.146135, 0.513489, 1)
 theme_override_constants/outline_size = 24
-theme_override_fonts/font = SubResource("SystemFont_hnpjw")
-theme_override_font_sizes/font_size = 112
+theme_override_fonts/font = ExtResource("3_is1af")
+theme_override_font_sizes/font_size = 70
 text = "PROPERTY TYCOON"
 horizontal_alignment = 1
 vertical_alignment = 1

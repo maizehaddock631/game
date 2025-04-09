@@ -103,7 +103,7 @@ func _process(delta):
 # Called when the roll button is pressed
 func _on_dice_button_pressed():
 	var num = all_players[current_turn].roll(dice, dice_2, game_spaces)
-	all_players[current_turn].move(num, game_spaces, timer)
+	all_players[current_turn].move(6, game_spaces, timer)
 	turn_action.show()
 	timer.start()
 	#player_turn(game_spaces[all_players[current_turn].current_position-1], current_player)
@@ -180,6 +180,8 @@ func _landed_on_property(property: Property):
 	card_spawn.add_child(property_card)
 	property_card.make_card(property.propertycost, property.tilename)
 	property_card.visible = true
+	if all_players[current_turn].playerName == "AI":
+		_on_property_button_pressed()
 	all_players[current_turn].pay_rent(property)
 
 func _on_property_button_pressed() -> void:
@@ -301,8 +303,15 @@ func update_label():
 	
 func start_turn():
 	var current_player = all_players[current_turn]
+	var new = Timer.new()
 	propertynames = ""
 	print("It's ", current_player.playerName, "'s turn!")
+	if current_player.playerName == "AI":
+		_on_dice_button_pressed()
+		new.start(10)
+		_on_turn_action_pressed()
+		new.start(5)
+		_on_end_turn_pressed()
 	#update_property_label()
 	if current_player.injail == true:
 		jail_choice.popup_centered()

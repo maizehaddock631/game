@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dq6v4jcb1qukc" path="res://potluck_card.gd" id="1_jvg0w"]
 [ext_resource type="Texture2D" uid="uid://417x86cg62u0" path="res://thumbnail_special tile.png" id="2_n0uyj"]
-[ext_resource type="Theme" uid="uid://cv8l8a5rgl4yk" path="res://Default.tres" id="3_iibwg"]
+[ext_resource type="Theme" uid="uid://5mbaoxawpglr" path="res://Settings menu/panel.tres" id="3_iibwg"]
 
 [node name="potluck" type="Node2D"]
 script = ExtResource("1_jvg0w")
@@ -39,5 +39,5 @@ offset_right = 25.0
 offset_bottom = 138.0
 text = "Close"
 
-[connection signal="pressed" from="close_button" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="close_button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="close_button" to="." method="_on_close_button_pressed"]

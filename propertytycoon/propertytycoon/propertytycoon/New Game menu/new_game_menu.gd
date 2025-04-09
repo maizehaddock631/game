@@ -148,3 +148,13 @@ func _on_line_edit_text_changed(new_text, player_index):
 		print("FULL stored_player_names:", stored_player_names)
 	else:
 		printerr("ERROR: Invalid player_index in _on_line_edit_text_changed:", player_index)
+
+
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	var player_name = "AI"
+	var token = preload("res://icon.svg")
+	if toggled_on:
+		num_players += 1
+		stored_player_names.append(player_name)
+		tokens.append(token)
+		

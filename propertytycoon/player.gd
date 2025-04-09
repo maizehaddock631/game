@@ -255,7 +255,7 @@ func owns_all_property_colours(colours:Array) -> bool:
 
 func pay_rent(property: Property) -> void:
 	var propertyOwner = property.propertyowner
-	var rent = property.rent
+	var rent = property.get_rent()
 	#if propertyOwner is Banker:
 		#print("This property is owned by the bank. No rent is needed.")
 	#elif owner == self:

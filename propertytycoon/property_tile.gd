@@ -38,6 +38,18 @@ var colour_groups = {
 func get_colour_group(color: Property.WhichColour) -> Array:
 	return colour_groups.get(color, [])
 
+func get_rent():
+	if self.propertyname == "The Old Creek" and self.numofhouses == 1:
+		self.rent = 10
+	elif self.propertyname == "The Old Creek" and self.numofhouses == 2:
+		self.rent = 30
+	elif self.propertyname == "The Old Creek" and self.numofhouses == 3:
+		self.rent = 90
+	elif self.propertyname == "The Old Creek" and self.numofhouses == 4:
+		self.rent = 160
+	return self.rent
+		
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if propertyowner != null:

@@ -50,7 +50,8 @@ func _ready() -> void:
 	game_version_optionButton.add_item("Full Version")
 	game_version_optionButton.add_item("Timed Version")
 	
-	
+##This function creates text fields and token options for 
+##the player to play with their name and chosen token
 func create_player_name_inputs():
 	# Clear any previous input fields
 	for input_field in player_name_inputs:
@@ -84,6 +85,9 @@ func create_player_name_inputs():
 			_on_token_chosen(i, selected_index)
 			)
 		
+	
+##This function is called when the start button is pressed to load all of the players with their names and tokens
+## and pass it into the main game
 func _on_start_game_pressed() -> void:
 	print("Starting game with settings:")
 	print("Players : ", num_players)
@@ -106,12 +110,14 @@ func _on_start_game_pressed() -> void:
 		printerr("Error: NewGameMenu has no parent. Cannot add game scene.")
 	
 
-
+##This function allows the scene to dynamically add input fields and token options corresponding 
+##to the amount of players inputted
 func _on_player_count_changed(value: float) -> void:
 	num_players = int(value) #Making sure value passed is an integer
 	print("Players : ", num_players)
 	create_player_name_inputs()
-
+	
+##This function assigns the token texture respective to the token chosen
 func _on_token_chosen(player_index: int, selected_index: int) -> void:
 	if player_index < 0 or player_index >= tokens.size():
 		printerr("ERROR: Invalid player_index in _on_token_chosen:", player_index)
@@ -140,6 +146,8 @@ func _on_token_chosen(player_index: int, selected_index: int) -> void:
 	else:
 		printerr("ERROR: Texture path does not exist:", texture_path)
 	
+	##This function is called every time the input text field for the player name is edited and 
+	##it puts it in the stored player names array to pass it in the main game
 func _on_line_edit_text_changed(new_text, player_index):
 	print("SIGNAL: Player", player_index + 1, "typed:", new_text)
 	if player_index >= 0 and player_index < stored_player_names.size():
@@ -149,7 +157,7 @@ func _on_line_edit_text_changed(new_text, player_index):
 	else:
 		printerr("ERROR: Invalid player_index in _on_line_edit_text_changed:", player_index)
 
-
+##This function checks if the autoplayer checkbox has been check and puts an AI player in the game
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	var player_name = "AI"
 	var token = preload("res://icon.svg")

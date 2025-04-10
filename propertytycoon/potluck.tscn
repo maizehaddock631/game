@@ -6,6 +6,7 @@
 
 [node name="potluck" type="Node2D"]
 script = ExtResource("1_jvg0w")
+type = 3
 
 [node name="base_card_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_n0uyj")
@@ -39,5 +40,5 @@ offset_right = 25.0
 offset_bottom = 138.0
 text = "Close"
 
-[connection signal="pressed" from="close_button" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="close_button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="close_button" to="." method="_on_close_button_pressed"]

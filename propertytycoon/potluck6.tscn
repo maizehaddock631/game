@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddocrrqc4kuya"]
+
+[ext_resource type="PackedScene" uid="uid://cfo3orgpcs5iv" path="res://potluck.tscn" id="1_n7k0k"]
+
+[node name="potluck" instance=ExtResource("1_n7k0k")]
+which_card = 6

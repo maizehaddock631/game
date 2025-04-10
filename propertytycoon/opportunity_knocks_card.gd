@@ -2,13 +2,13 @@ extends OpportunityKnocks
 class_name oppoKnocksCard
 
 
-@export var ok_description: String = "description"
-@onready var des_lbl: Label = $oppo_knocks_display/des_lbl
-@onready var close_btn: Button = $oppo_knocks_display/close_btn
+@export var ok_description: String = "description" #card description
+@onready var des_lbl: Label = $oppo_knocks_display/des_lbl #card label
+@onready var close_btn: Button = $oppo_knocks_display/close_btn #card close button
 
+# Checks the card based on the number from which type, puts the description in the make card function
 func _ready():
 	visible = true
-	
 	if _return_card_num() == 1:
 		_make_card("Bank pays you divided of £50")
 	if _return_card_num() == 2:
@@ -42,9 +42,12 @@ func _ready():
 	if _return_card_num() == 16:
 		_make_card("Get out of jail free")
 
+# Sets the descrption of the card to the parsed string parameter
+# @Param string description of the card
 func _make_card(_des :String):
 	ok_description = _des
 	des_lbl.set_text(_des)
 
+# Makes the card not visible
 func _on_close_btn_pressed() -> void:
 	visible = false
